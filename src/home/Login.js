@@ -93,6 +93,35 @@ Justify-content: center
                                             nhập
                                         </button>
                                     </div>
+                                    <p className="or text-center fz-12px">Hoặc đăng nhập bằng</p>
+
+                                    <div className="row mt-2 ml-4">
+                                        <div className="login-social-list col-4">
+                                            <a href="" className="btn btn-default btn-signin input-block-level h-40"
+                                               style={{background: "red"}}>
+                                                <i className="fa-brands fa-google" style={{color: "#ffffff"}}></i>
+                                                <span className="ml-1" style={{color: "white"}}>Google</span>
+                                            </a>
+                                            <div className="d-none" id="login-google-render"></div>
+                                        </div>
+
+                                        <div className="col-4">
+                                            <a href=""
+                                               className="btn btn-signin btn-primary input-block-level h-40 btn-login-social">
+                                                <i className="fa-brands fa-facebook" style={{color: "#eceff3"}}></i>
+                                                <span className="ml-1">Facebook</span>
+                                            </a>
+                                        </div>
+                                        <div className="col-4">
+                                            <a href=""
+                                               className="btn btn-default btn-signin btn-signin-linkedin input-block-level h-40 btn-login-social"
+                                               style={{background: "black"}}>
+                                                <i className="fa-brands fa-x-twitter" style={{color: "#e7eaee"}}></i>
+                                                <span className="ml-1" style={{color: "white"}}>Twitter</span>
+                                            </a>
+                                        </div>
+
+                                    </div>
                                     <div
                                         className="mt-3 d-flex justify-content-center option-auth text-center wrap-redirect-login">
                                     <span>Bạn chưa có tài khoản?

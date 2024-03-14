@@ -51,24 +51,15 @@ display: flex;
 
             </style>
             <div className={'row'}>
-                <div className="col-8 mt-5" style={{ overflow: 'hidden', overflowY: 'auto', maxHeight:'calc(100vh - 100%)'}}>
+                <div className="col-8 mt-5"
+                     style={{overflow: 'hidden', overflowY: 'auto', maxHeight: 'calc(100vh - 100%)'}}>
                     <div className="hic col-8">
                         <form>
                             <div className="hg">
 
                                 <h4 className="text-success"> Chào mừng bạn đến với TopCV </h4>
                                 <p>Cùng nhau xây dựng một hồ sơ nổi bật và nhận được các cơ hội sự nghiệp lý tưởng </p>
-                                <div className="form-group mb-3">
-                                    <label form="fullname" className="mb-8">Họ và tên</label>
-                                    <div className="input-group">
-                                        <div className="input-group-prepend">
-                                            <span className="input-group-text">
-                                                <i className="fa-solid fa-user" style={{color: "#26cf61"}}></i>
-                                            </span>
-                                        </div>
-                                        <input type="text" placeholder="Nhập họ tên" className={'form-control'}/>
-                                    </div>
-                                </div>
+
                                 <div className="form-group mb-3">
                                     <label form="email" className="mb-8">Email</label>
                                     <div className="input-group">
@@ -100,26 +91,7 @@ display: flex;
                                         </div>
                                     </div>
                                 </div>
-                                <div className="form-group mb-3">
-                                    <label form="confirmPassword" className="mb-8">Xác nhận mật khẩu</label>
-                                    <div className="input-group">
-                                        <div className="input-group-prepend">
-                                            <span className="input-group-text">
-                                               <i className="fa-solid fa-shield-halved" style={{color: "#26cf61"}}></i>
-                                            </span>
-                                        </div>
-                                        <input type="password" placeholder="Nhập lại mật khẩu"
-                                               className={'form-control'}
-                                               id="confirmPassword"/>
-                                        <div className="input-group-prepend">
-                                            <button type="button" tabIndex="-1" data-input-taget="#passwork"
-                                                    className="input-group-text toggle-passwork"
-                                                    style={{background: "white"}}>
-                                                <i className="fa-solid fa-eye-slash" style={{color: "#aaacb1"}}></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+
 
                                 <p>
                                     Tôi đã đọc và đồng ý với <a href="/"
@@ -132,6 +104,38 @@ display: flex;
                                     <button type="submit" className="btn btn-primary btn-block btn btn-success">Đăng ký
                                     </button>
                                 </div>
+
+                                <p className="or text-center fz-12px">Hoặc đăng nhập bằng</p>
+
+                                <div className="row mt-2 ml-4">
+                                        {/*<div className={"offset-1"}></div>*/}
+                                        <div className="login-social-list col-4">
+                                            <a href="" className="btn btn-default btn-signin input-block-level h-40"
+                                               style={{background: "red"}}>
+                                                <i className="fa-brands fa-google" style={{color: "#ffffff"}}></i>
+                                                <span className="ml-1" style={{color: "white"}}>Google</span>
+                                            </a>
+                                            <div className="d-none" id="login-google-render"></div>
+                                        </div>
+
+                                        <div className="col-4">
+                                            <a href=""
+                                               className="btn btn-signin btn-primary input-block-level h-40 btn-login-social">
+                                                <i className="fa-brands fa-facebook" style={{color: "#eceff3"}}></i>
+                                                <span className="ml-1">Facebook</span>
+                                            </a>
+                                        </div>
+                                        <div className="col-4">
+                                            <a href=""
+                                               className="btn btn-default btn-signin btn-signin-linkedin input-block-level h-40 btn-login-social"
+                                               style={{background: "black"}}>
+                                                <i className="fa-brands fa-x-twitter" style={{color: "#e7eaee"}}></i>
+                                                <span className="ml-1" style={{color: "white"}}>Twitter</span>
+                                            </a>
+                                        </div>
+
+                                </div>
+
                                 <div
                                     className="mt-3 d-flex justify-content-center option-auth text-center wrap-redirect-login">
                                     <span>Bạn đã có tài khoản?
@@ -152,7 +156,7 @@ display: flex;
                         </form>
                     </div>
                 </div>
-                <div className="col-4" >
+                <div className="col-4">
                     <div style={{position: "relative", width: "100%", height: "100vh"}}>
                         <img className="img p-0"
                              src="https://static.topcv.vn/v4/image/auth/auth_bg_desktop.png"
