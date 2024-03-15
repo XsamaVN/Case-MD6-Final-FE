@@ -99,9 +99,8 @@ Justify-content: center
                                 <div className="mt-3 support text-center">
                                     <p className="font-weight-bold mb-0">Cant create account?</p>
                                     <p className="mb-0">
-                                        HOTLINE
-                                        <a href="/" style={{color: "green"}}>01234567889</a>
-                                        (time in works).
+                                        HOTLINE:
+                                        <a href="/" style={{color: "green"}}> 01234567889  </a>
                                     </p>
                                     <br/>
                                     <p className="auth-copy-right mt-5" style={{color: "green"}}>© 2016. All Rights

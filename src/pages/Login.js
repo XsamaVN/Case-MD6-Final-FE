@@ -71,14 +71,15 @@ export default function Login() {
                                             </div>
                                         </div>
                                     </div>
+                                    <div className="form-group mx-lg-auto wrap-forgot-passwork">
+                                        <Link style={{color: "green"}} to={'/'}> Forgot password? </Link>
+                                    </div>
                                     <div className="form-group col-12">
                                         <button type="submit" className="btn btn-primary btn-block btn-success">Login
                                         </button>
                                     </div>
-                                    <div className="form-group mx-lg-auto wrap-forgot-passwork">
-                                        <Link style={{color: "green"}} to={'/'}> Forgot password? </Link>
-                                    </div>
                                 </Form>
+
                             </Formik>
                             <p className="or text-center fz-12px">Or login with</p>
                             <div className="row mt-2 ml-4">
