@@ -66,9 +66,8 @@ Justify-content: center
                         <form>
                             <div className="hg">
 
-                                <h4 className="text-success">Chào mừng bạn đến với TopCV</h4>
-                                <p>Cùng nhau xây dựng một hồ sơ nổi bật và nhận được các cơ hội sự nghiệp lý
-                                    tưởng </p>
+                                <h4 className="text-success">Welcome to TopCV</h4>
+                                <p>Together, build an outstanding profile and get ideal career opportunities</p>
                                 <div className="form-group mb-3">
                                     <label form="email" className="mb-8">Email</label>
                                     <div className="input-group">
@@ -82,65 +81,13 @@ Justify-content: center
                                 </div>
 
                                 <p>
-                                    Tôi đã đọc và đồng ý với
-                                    <a href="/" className="text-success">Điều khoản dịch vụ</a> và
-                                    <a href="/" className="text-success">Chính sách bảo mật</a> của TopCV
+                                    I agree with
+                                    <a href="/" className="text-success">Terms of service</a> and
+                                    <a href="/" className="text-success">Privacy Policy</a> of TopCV
                                 </p>
-
                                 <div className="form-group col-12">
-                                    <button type="submit" className="btn btn-primary btn-block btn btn-success">Đăng ký
+                                    <button type="submit" className="btn btn-primary btn-block btn btn-success">Register
                                     </button>
-                                </div>
-
-                                <div className="form-group mx-lg-auto wrap-forgot-passwork">
-                                    <a href="/" style={{color: "green"}}> Quên mật khẩu </a>
-                                </div>
-
-
-                                <div className="form-group col-12">
-                                    <button type="submit" className="btn btn-primary btn-block btn btn-success">Đăng
-                                        nhập
-                                    </button>
-                                </div>
-
-                                <p>
-                                    Tôi đã đọc và đồng ý với
-                                    <a href="/" className="text-success">Điều khoản dịch vụ</a> và
-                                    <a href="/" className="text-success">Chính sách bảo mật</a> của TopCV
-                                </p>
-
-                                <div className="form-group col-12">
-                                    <button type="submit" className="btn btn-primary btn-block btn btn-success">Đăng ký
-                                    </button>
-                                </div>
-                                <p className="or text-center fz-12px">Hoặc đăng nhập bằng</p>
-
-                                <div className="row mt-2 ml-4">
-                                    <div className="login-social-list col-4">
-                                        <a href="" className="btn btn-default btn-signin input-block-level h-40"
-                                           style={{background: "red"}}>
-                                            <i className="fa-brands fa-google" style={{color: "#ffffff"}}></i>
-                                            <span className="ml-1" style={{color: "white"}}>Google</span>
-                                        </a>
-                                        <div className="d-none" id="login-google-render"></div>
-                                    </div>
-
-                                    <div className="col-4">
-                                        <a href=""
-                                           className="btn btn-signin btn-primary input-block-level h-40 btn-login-social">
-                                            <i className="fa-brands fa-facebook" style={{color: "#eceff3"}}></i>
-                                            <span className="ml-1">Facebook</span>
-                                        </a>
-                                    </div>
-                                    <div className="col-4">
-                                        <a href=""
-                                           className="btn btn-default btn-signin btn-signin-linkedin input-block-level h-40 btn-login-social"
-                                           style={{background: "black"}}>
-                                            <i className="fa-brands fa-x-twitter" style={{color: "#e7eaee"}}></i>
-                                            <span className="ml-1" style={{color: "white"}}>Twitter</span>
-                                        </a>
-                                    </div>
-
                                 </div>
                                 <div
                                     className="mt-3 d-flex justify-content-center option-auth text-center wrap-redirect-login">
@@ -182,7 +129,8 @@ Justify-content: center
                                 <a href="/">
                                     <br/>
                                     <br/>
-                                    <img width="160" src="https://static.topcv.vn/v4/image/auth/topcv_white.png" alt=""/>
+                                    <img width="160" src="https://static.topcv.vn/v4/image/auth/topcv_white.png"
+                                         alt=""/>
                                 </a>
 
                                 <h1 className="mt-4" style={{color: "white"}}>
@@ -190,7 +138,8 @@ Justify-content: center
                                     <br/>
                                     Connect to success
                                     <h6>
-                                        <p style={{color: "white"}} className="mt-2">TopCV - Pioneering human resources ecosystem applying technology in Vietnam</p>
+                                        <p style={{color: "white"}} className="mt-2">TopCV - Pioneering human resources
+                                            ecosystem applying technology in Vietnam</p>
                                     </h6>
                                 </h1>
                             </div>
