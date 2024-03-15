@@ -7,3 +7,9 @@ export const loginUser = createAsyncThunk (
         return  await customAxios.post('login', data);
     }
 )
+export const registerUser = createAsyncThunk (
+    'email/register',
+    async (data) => {
+        return  await customAxios.post('register', data);
+    }
+)

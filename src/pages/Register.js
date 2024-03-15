@@ -1,4 +1,22 @@
+import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router";
+import * as yup from "yup";
+import {registerUser} from "../services/UserService";
+import {Field,Formik} from "formik";
+
 export default function Register() {
+    const dispatch = useDispatch();
+
+    const loginSchema = yup.object().shape({
+        email: yup.string().email("Invalid email").required("Email is required")
+    });
+    const handleRegister = (values) => {
+        let data = {
+            email: values.email,
+        };
+        dispatch(registerUser(data));
+    }
     return (
         <>
             <style>{`
@@ -53,63 +71,66 @@ scrollbar-width: none;
 Justify-content: center
 }
 
-                `
-            }
-
-            </style>
+                `}</style>
 
             <div className={'row'}>
-
-                <div className="col-12 container-fluid "
+                <div className="col-12 container-fluid"
                      style={{overflow: 'hidden', overflowY: 'auto', maxHeight: 'calc(100vh - 100%)'}}>
                     <div className="hic col-8 mt-5">
-                        <form>
-                            <div className="hg">
-
-                                <h4 className="text-success">Welcome to TopCV</h4>
-                                <p>Together, build an outstanding profile and get ideal career opportunities</p>
-                                <div className="form-group mb-3">
-                                    <label form="email" className="mb-8">Email</label>
-                                    <div className="input-group">
-                                        <div className="input-group-prepend">
-                                            <span className="input-group-text">
-                                                <i className="fa-solid fa-envelope" style={{color: "#26cf61"}}></i>
-                                            </span>
+                        <div className="hg">
+                            <h4 className="text-success">Welcome to TopCV</h4>
+                            <p>Together, build an outstanding profile and get ideal career opportunities</p>
+                            <Formik
+                                initialValues={{email: ''}}
+                                onSubmit={(values) => handleRegister(values)}
+                                validationSchema={loginSchema}
+                            >
+                                {formik => (
+                                    <form onSubmit={formik.handleSubmit}>
+                                        <div className="form-group mb-3">
+                                            <label htmlFor="email" className="mb-8">Email</label>
+                                            <div className="input-group">
+                                                <div className="input-group-prepend">
+                                                <span className="input-group-text">
+                                                    <i className="fa-solid fa-envelope"
+                                                       style={{color: "#26cf61"}}></i>
+                                                </span>
+                                                </div>
+                                                <Field name={'email'} placeholder="Email" className={'form-control'}
+                                                       id="email"/>
+                                            </div>
                                         </div>
-                                        <input type="email" placeholder="Email" className={'form-control'} id="email"/>
-                                    </div>
-                                </div>
-
-                                <p>
-                                    I agree with
-                                    <a href="/" className="text-success">Terms of service</a> and
-                                    <a href="/" className="text-success">Privacy Policy</a> of TopCV
-                                </p>
-                                <div className="form-group col-12">
-                                    <button type="submit" className="btn btn-primary btn-block btn btn-success">Register
-                                    </button>
-                                </div>
-                                <div
-                                    className="mt-3 d-flex justify-content-center option-auth text-center wrap-redirect-login">
-                                    <span>You already have account?
-                                    <a href="/" style={{color: "green"}}>Login now</a>
-                                    </span>
-                                </div>
-                                <br/>
-                                <div className="mt-3 support text-center">
-                                    <p className="font-weight-bold mb-0">Cant create account?</p>
-                                    <p className="mb-0">
-                                        HOTLINE:
-                                        <a href="/" style={{color: "green"}}> 01234567889  </a>
-                                    </p>
-                                    <br/>
-                                    <p className="auth-copy-right mt-5" style={{color: "green"}}>© 2016. All Rights
-                                        Reserved. TopCV Vietnam JSC.</p>
-                                </div>
-                            </div>
-
-                        </form>
-
+                                        <p>
+                                            I agree with
+                                            <a href="/" className="text-success">Terms of service</a> and
+                                            <a href="/" className="text-success">Privacy Policy</a> of TopCV
+                                        </p>
+                                        <div className="form-group col-12">
+                                            <button type="submit"
+                                                    className="btn btn-primary btn-block btn btn-success">Register
+                                            </button>
+                                        </div>
+                                        <div className="mt-3 d-flex justify-content-center option-auth text-center wrap-redirect-login">
+                                        <span>You already have an account?
+                                            <Link style={{color: "green"}} to={''}>Login now</Link>
+                                        </span>
+                                        </div>
+                                        <br/>
+                                        <div className="mt-3 support text-center">
+                                            <p className="font-weight-bold mb-0">Can't create an account?</p>
+                                            <p className="mb-0">
+                                                HOTLINE:
+                                                <a href="/" style={{color: "green"}}> 01234567889 </a>
+                                            </p>
+                                            <br/>
+                                            <p className="auth-copy-right mt-5" style={{color: "green"}}>© 2016. All
+                                                Rights
+                                                Reserved. TopCV Vietnam JSC.</p>
+                                        </div>
+                                    </form>
+                                )}
+                            </Formik>
+                        </div>
                     </div>
                     <div className="col-4">
                         <div style={{position: "relative", width: "100%", height: "100vh"}}>
@@ -128,25 +149,23 @@ Justify-content: center
                                 <a href="/">
                                     <br/>
                                     <br/>
-                                    <img width="160" src="https://static.topcv.vn/v4/image/auth/topcv_white.png"
-                                         alt=""/>
-                                </a>
+                                    <img width="160"
+                                         src="https://static.topcv.vn/v4/image/auth/topcv_white.png"
+                                         alt=""/></a>
 
                                 <h1 className="mt-4" style={{color: "white"}}>
                                     Continued advantage
                                     <br/>
                                     Connect to success
-                                    <h6>
-                                        <p style={{color: "white"}} className="mt-2">TopCV - Pioneering human resources
-                                            ecosystem applying technology in Vietnam</p>
-                                    </h6>
                                 </h1>
+                                <h6>
+                                    <p style={{color: "white"}} className="mt-2">TopCV - Pioneering human resources
+                                        ecosystem applying technology in Vietnam</p>
+                                </h6>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </>
     )

@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {loginUser} from "../../services/UserService";
+import {loginUser, registerUser} from "../../services/UserService";
 
 const initialState = {
     users: [],
@@ -14,6 +14,9 @@ const userSlice = createSlice({
             localStorage.setItem('currentUser', JSON.stringify(payload.data))
             localStorage.setItem("access_token", payload.data.accessToken)
             state.currentUser = payload.data;
+        });
+        builder.addCase(registerUser.fulfilled, (state, action) => {
+
         });
     }
 })

@@ -22,7 +22,6 @@ export default function Login() {
             await navigate(data.roles.length > 1 ? 'admin' : 'home');
         } catch (error) {
             console.error("Login failed:", error);
-            // Handle login failure
         }
     };
 
