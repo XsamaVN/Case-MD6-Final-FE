@@ -3,19 +3,20 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";
 import * as yup from "yup";
 import {registerUser} from "../services/UserService";
-import {Field,Formik} from "formik";
+import {Field, Formik} from "formik";
 
 export default function Register() {
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
     const loginSchema = yup.object().shape({
         email: yup.string().email("Invalid email").required("Email is required")
     });
-    const handleRegister = (values) => {
+    const handleRegister = async (values) => {
         let data = {
             email: values.email,
         };
-        dispatch(registerUser(data));
+        await dispatch(registerUser(data));
+        navigate('/')
     }
     return (
         <>
@@ -110,7 +111,8 @@ Justify-content: center
                                                     className="btn btn-primary btn-block btn btn-success">Register
                                             </button>
                                         </div>
-                                        <div className="mt-3 d-flex justify-content-center option-auth text-center wrap-redirect-login">
+                                        <div
+                                            className="mt-3 d-flex justify-content-center option-auth text-center wrap-redirect-login">
                                         <span>You already have an account?
                                             <Link style={{color: "green"}} to={''}>Login now</Link>
                                         </span>
