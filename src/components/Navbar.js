@@ -1,10 +1,11 @@
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import React from "react";
+import React, {useEffect} from "react";
 import {useNavigate} from "react-router";
 import * as yup from "yup";
 import {loginUser} from "../services/UserService";
 import {Field, Form, Formik} from "formik";
+import {current} from "@reduxjs/toolkit";
 
 export default function Navbar() {
     const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export default function Navbar() {
         password: yup.string().required("Password is required"),
     });
 
+
     const initialValues = {
         email: "",
         password: ""
@@ -25,16 +27,18 @@ export default function Navbar() {
 
     const handleLogin = async (values) => {
         try {
-            const response = await dispatch(loginUser(values));
-            const data = response.payload.data;
-            await navigate(data.roles.length > 1 ? 'admin' : '/');
+         await dispatch(loginUser(values));
+
+            // const data = response.payload.data;
+            // await navigate(data.roles[0].length > 0 ? '"ROLE_USER"' : '/');
         } catch (error) {
             console.error("Login failed:", error);
         }
     };
     const handleLogout = () => {
+        alert("a")
         localStorage.clear();
-        navigate('/login');
+        navigate('/');
     }
 
     return (
@@ -227,47 +231,33 @@ export default function Navbar() {
                                         <li className="dropdown-submenu">
                                             <Link to="#">single post<i className="fa fa-angle-right"></i></Link>
                                             <ul className="dropdown-menu">
-                                                <li><Link to="blog-post-right-sidebar.html">post - right sidebar</Link>
-                                                </li>
-                                                <li><Link to="blog-post-left-sidebar.html">post - left sidebar</Link>
-                                                </li>
+                                                <li><Link to="blog-post-right-sidebar.html">post - right sidebar</Link></li>
+                                                <li><Link to="blog-post-left-sidebar.html">post - left sidebar</Link></li>
                                                 <li><Link to="blog-post.html">post - fullwidth</Link></li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
 
-                                <li className="dropdown simple-menu">
-                                    <Link to="#" className="dropdown-toggle" data-toggle="dropdown" role="button">shop<i
-                                        className="fa fa-angle-down"></i></Link>
-                                    <ul className="dropdown-menu" role="menu">
-                                        <li className="dropdown-submenu">
-                                            <Link to="#">shop<i className="fa fa-angle-right"></i></Link>
-                                            <ul className="dropdown-menu">
-                                                <li><Link to="shop-right-sidebar.html">shop - right sidebar</Link></li>
-                                                <li><Link to="shop-left-sidebar.html">shop - left sidebar</Link></li>
-                                                <li><Link to="shop-fullwidth.html">shop - fullwidth</Link></li>
-                                            </ul>
-                                        </li>
-                                        <li className="dropdown-submenu">
-                                            <Link to="#">single product<i className="fa fa-angle-right"></i></Link>
-                                            <ul className="dropdown-menu">
-                                                <li><Link to="shop-product-right-sidebar.html">product - right
-                                                    sidebar</Link></li>
-                                                <li><Link to="shop-product-left-sidebar.html">product - left
-                                                    sidebar</Link></li>
-                                                <li><Link to="shop-product.html">product - fullwidth</Link></li>
-                                            </ul>
-                                        </li>
-                                        <li><Link to="cart.html">cart</Link></li>
-                                        <li><Link to="checkout.html">checkout</Link></li>
-                                    </ul>
-                                </li>
+                                {localStorage.getItem("roles")!==null &&
+                                    <li className="dropdown simple-menu">
+                                        <Link to="#">{localStorage.getItem("currentUser")} <i
+                                            className="fa fa-angle-down"></i></Link>
+                                        <ul className="dropdown-menu nav-prf">
+                                            <li><Link to="#">Profile</Link></li>
+                                            <li><button type={"submit"} onClick={()=>{
+                                                alert("a")
+                                                localStorage.clear();
+                                                navigate('/');
+                                            }} className="btn btn-danger btn-effect" >Logout</button></li>
+                                        </ul>
+                                    </li>}
+                                {localStorage.getItem("roles")===null &&
+                                    <li className="login-btn">
+                                        <Link id="modal_trigger" to="javascript:void(0)" role="button"><i
+                                            className="fa fa-lock"></i>login</Link>
+                                    </li>}
 
-                                <li className="menu-item login-btn">
-                                    <Link id="modal_trigger" to="javascript:void(0)" role="button"><i
-                                        className="fa fa-lock"></i>login</Link>
-                                </li>
 
                             </ul>
                         </div>
@@ -282,36 +272,37 @@ export default function Navbar() {
                             <Formik
                                 initialValues={initialValues}
                                 validationSchema={loginSchema}
-                                onSubmit={handleLogin}
-                            >
+                                onSubmit={(values) => {
+                                    handleLogin(values)
+                                }}>
                                 {({errors, touched}) => (
-                                    <Form>
-                                        <div id="cd-login">
-                                            <form className="cd-form">
-                                                <p className="fieldset">
-                                                    <label className="image-replace cd-email"
-                                                           htmlFor="signin-email">E-mail</label>
-                                                    <Field name={"email"} className="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail"/>
-                                                </p>
-                                                <p className="fieldset">
-                                                    <label className="image-replace cd-password"
-                                                           htmlFor="signin-password">Password</label>
-                                                    <Field name={"password"} className="full-width has-padding has-border"
-                                                           id="signin-password"
-                                                           type="password" placeholder="Password"/>
-                                                </p>
-                                                <p className="fieldset">
-                                                    <Field type="checkbox" id="remember-me" defaultChecked/>
-                                                    <label htmlFor="remember-me">Remember me</label>
-                                                </p>
-                                                <p className="fieldset">
-                                                    <button type="submit" value="Login"
-                                                            className="btn btn-blue btn-effect">Login
-                                                    </button>
-                                                </p>
-                                            </form>
-                                        </div>
-                                    </Form>
+
+                                    <div id="cd-login">
+                                        <Form className="cd-form">
+                                            <p className="fieldset">
+                                                <label className="image-replace cd-email"
+                                                       htmlFor="signin-email">E-mail</label>
+                                                <Field name={"email"} className="full-width has-padding has-border"
+                                                       id="signin-email" type="email" placeholder="E-mail"/>
+                                            </p>
+                                            <p className="fieldset">
+                                                <label className="image-replace cd-password"
+                                                       htmlFor="signin-password">Password</label>
+                                                <Field name={"password"} className="full-width has-padding has-border"
+                                                       id="signin-password"
+                                                       type="password" placeholder="Password"/>
+                                            </p>
+                                            <p className="fieldset">
+                                                <Field type="checkbox" id="remember-me" defaultChecked/>
+                                                <label htmlFor="remember-me">Remember me</label>
+                                            </p>
+                                            <p className="fieldset">
+                                                <button type="submit"
+                                                        className="btn btn-blue btn-effect">Login
+                                                </button>
+                                            </p>
+                                        </Form>
+                                    </div>
                                 )}
                             </Formik>
                         </div>

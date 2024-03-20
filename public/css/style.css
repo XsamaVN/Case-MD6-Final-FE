@@ -937,6 +937,7 @@ ul.list {
 
 .social-btn-roll:hover .social-btn-roll-icon {
     color: #f6f6f6;
+    background: #3b5998;
 }
 
 .social-btn-roll-icons {
@@ -1062,7 +1063,7 @@ ul.list {
 
 section.page-header {
     position: relative;
-    background: url(../images/img/page-header.jpg) no-repeat;
+    /*background: url(../images/img/page-header.jpg) no-repeat;*/
     background-position: center center;
     background-size: cover;
     text-align: center;
@@ -1189,7 +1190,7 @@ section.page-header3 .breadcrumb > .active {
 
 section.page-header4 {
     position: relative;
-    background: url(../images/img/page-header.jpg) no-repeat;
+    /*background: url(../images/img/page-header.jpg) no-repeat;*/
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
@@ -1391,11 +1392,11 @@ div#main-nav {
     margin-left: 10px;
 }
 
-.nav > li > a:focus,
-.nav > li > a:hover,
-{
-    background: none !important;
-}
+/*.nav > li > a:focus,*/
+/*.nav > li > a:hover,*/
+/*{*/
+/*    background: none !important;*/
+/*}*/
 
 .nav > li > a:focus {
     color: #29b2fe !important;
@@ -1894,7 +1895,7 @@ header.sticky {
 }
 
 form.cd-form button {
-    background: none;
+    background: #29b2fe;
     display: block;
     margin: 0 auto;
     color: #323232;
@@ -5055,7 +5056,7 @@ section#job-page .related-jobs .owl-dots .owl-dot.active span {
 /*** Version 1 ***/
 
 section#page-not-found {
-    background: url(../images/img/404-bg.png) no-repeat;
+    /*background: url(../images/img/404-bg.png) no-repeat;*/
     background-position: left center;
     text-align: center;
 }
@@ -5082,9 +5083,9 @@ section#page-not-found2 h2 {
     width: 100%;
     min-height: 100%;
     background-blend-mode: overlay;
-    background: url(../images/img/coming-soon-bg.png) no-repeat, -moz-linear-gradient(to right, #29b2fe -20%, #443088 120%);
-    background: url(../images/img/coming-soon-bg.png) no-repeat, -webkit-linear-gradient(to right, #29b2fe -20%, #443088 120%);
-    background: url(../images/img/coming-soon-bg.png) no-repeat, linear-gradient(to right, #29b2fe -20%, #443088 120%);
+    /*background: url(../images/img/coming-soon-bg.png) no-repeat, -moz-linear-gradient(to right, #29b2fe -20%, #443088 120%);*/
+    /*background: url(../images/img/coming-soon-bg.png) no-repeat, -webkit-linear-gradient(to right, #29b2fe -20%, #443088 120%);*/
+    /*background: url(../images/img/coming-soon-bg.png) no-repeat, linear-gradient(to right, #29b2fe -20%, #443088 120%);*/
     background-position: left center;
     z-index: 5;
 }
@@ -5197,20 +5198,20 @@ section#login .login-box .login-title:before {
     opacity: .4;
 }
 
-section#login .login-box form {
+section#login .login-box Form {
     padding: 40px;
 }
 
-section#login .login-box form .form-group:last-child {
+section#login .login-box Form .form-group:last-child {
     margin-bottom: 0;
 }
 
-section#login .login-box form a {
+section#login .login-box Form a {
     color: #333;
     font-weight: 700;
 }
 
-section#login .login-box form a:hover {
+section#login .login-box Form a:hover {
     color: #29b1fd;
 }
 
@@ -6757,4 +6758,12 @@ section.shop .panel-group .panel .panel-heading {
 section.shop .panel-group .panel .panel-heading h4 a {
     font-family: inherit;
     font-size: 18px;
+}
+.nav-prf{
+    width: 100px !important;
+}
+.nav-prf>li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
