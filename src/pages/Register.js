@@ -1,174 +1,231 @@
-import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {useNavigate} from "react-router";
-import * as yup from "yup";
-import {registerUser} from "../services/UserService";
-import {Field, Formik} from "formik";
+import React from 'react';
+import {Link} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {useNavigate} from 'react-router';
+import * as yup from 'yup';
+import {registerUser} from '../services/UserService';
+import {Field, Form, Formik} from 'formik';
 
-export default function Register() {
+const Register = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const loginSchema = yup.object().shape({
-        email: yup.string().email("Invalid email").required("Email is required")
+        email: yup.string().email('Invalid email').required('Email is required'),
     });
+
     const handleRegister = async (values) => {
-        let data = {
-            email: values.email,
-        };
-        await dispatch(registerUser(data));
-        navigate('/')
-    }
+        try {
+            let data = {
+                email: values.email,
+            };
+            await dispatch(registerUser(data));
+            navigate('/login');
+        } catch (error) {
+            console.error('Registration failed:', error);
+            // Handle registration error
+        }
+    };
+
     return (
         <>
-            <style>{`
-            
-              .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
-              border-bottom-left-radius: 0;
-              border-top-left-radius: 0;
-              margin-left: -1px;
-              }
-              
-              .auth .form-control {
-    background: #fff 0 0 no-repeat padding-box;
-    border: none;
-    font-size: 14px;
-    padding-bottom: 7px;
-    padding-top: 7px;
-}
-
-.input-group>.form-control, .input-group>.form-select {
-    flex: 1 1 auto;
-    min-width: 0;
-    position: relative;
-    width: 1%;
-}
-.form-control {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-clip: padding-box;
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    color: #212529;
-    display: block;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    padding: 0.375rem 0.75rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    width: 100%;
-}
-.col-8{
-display: flex;
-    justify-content: center;
-}
-.col-12 {
-display: flex;
-flex:1;
-padding:0 0 0;
-position: relative;
-scrollbar-width: none;
-Justify-content: center
-}
-
-                `}</style>
-
-            <div className={'row'}>
-                <div className="col-12 container-fluid"
-                     style={{overflow: 'hidden', overflowY: 'auto', maxHeight: 'calc(100vh - 100%)'}}>
-                    <div className="hic col-8 mt-5">
-                        <div className="hg">
-                            <h4 className="text-success">Welcome to TopCV</h4>
-                            <p>Together, build an outstanding profile and get ideal career opportunities</p>
-                            <Formik
-                                initialValues={{email: ''}}
-                                onSubmit={(values) => handleRegister(values)}
-                                validationSchema={loginSchema}
-                            >
-                                {formik => (
-                                    <form onSubmit={formik.handleSubmit}>
-                                        <div className="form-group mb-3">
-                                            <label htmlFor="email" className="mb-8">Email</label>
-                                            <div className="input-group">
-                                                <div className="input-group-prepend">
-                                                <span className="input-group-text">
-                                                    <i className="fa-solid fa-envelope"
-                                                       style={{color: "#26cf61"}}></i>
-                                                </span>
-                                                </div>
-                                                <Field name={'email'} placeholder="Email" className={'form-control'}
-                                                       id="email"/>
-                                            </div>
-                                        </div>
-                                        <p>
-                                            I agree with
-                                            <a href="/" className="text-success">Terms of service</a> and
-                                            <a href="/" className="text-success">Privacy Policy</a> of TopCV
-                                        </p>
-                                        <div className="form-group col-12">
-                                            <button type="submit"
-                                                    className="btn btn-primary btn-block btn btn-success">Register
-                                            </button>
-                                        </div>
-                                        <div
-                                            className="mt-3 d-flex justify-content-center option-auth text-center wrap-redirect-login">
-                                        <span>You already have an account?
-                                            <Link style={{color: "green"}} to={''}>Login now</Link>
-                                        </span>
-                                        </div>
-                                        <br/>
-                                        <div className="mt-3 support text-center">
-                                            <p className="font-weight-bold mb-0">Can't create an account?</p>
-                                            <p className="mb-0">
-                                                HOTLINE:
-                                                <a href="/" style={{color: "green"}}> 01234567889 </a>
-                                            </p>
-                                            <br/>
-                                            <p className="auth-copy-right mt-5" style={{color: "green"}}>© 2016. All
-                                                Rights
-                                                Reserved. TopCV Vietnam JSC.</p>
-                                        </div>
-                                    </form>
-                                )}
-                            </Formik>
+            <div className={"row"}>
+                <section className="page-header">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <h2>register</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-4">
-                        <div style={{position: "relative", width: "100%", height: "100vh"}}>
-                            <img className="img p-0"
-                                 src="https://static.topcv.vn/v4/image/auth/auth_bg_desktop.png"
-                                 alt=""
-                                 style={{
-                                     position: "absolute",
-                                     top: 0,
-                                     left: 0,
-                                     width: "100%",
-                                     height: "100vh",
-                                     objectFit: "cover"
-                                 }}/>
-                            <div className="col-9 m-0 ml-4">
-                                <a href="/">
-                                    <br/>
-                                    <br/>
-                                    <img width="160"
-                                         src="https://static.topcv.vn/v4/image/auth/topcv_white.png"
-                                         alt=""/></a>
-
-                                <h1 className="mt-4" style={{color: "white"}}>
-                                    Continued advantage
-                                    <br/>
-                                    Connect to success
-                                </h1>
-                                <h6>
-                                    <p style={{color: "white"}} className="mt-2">TopCV - Pioneering human resources
-                                        ecosystem applying technology in Vietnam</p>
-                                </h6>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <ul className="breadcrumb">
+                                    <li>
+                                        <Link to="#">home</Link>
+                                    </li>
+                                    <li className="active">pages</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+                <section className="ptb80" id="register">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <Formik
+                                    initialValues={{
+                                        fullName: '',
+                                        username: '',
+                                        email: '',
+                                        agree: false,
+                                    }}
+                                    validationSchema={loginSchema}
+                                    onSubmit={(values, {setSubmitting}) => {
+                                        handleRegister(values);
+                                        setSubmitting(false);
+                                    }}
+                                >
+                                    {({isSubmitting}) => (
+                                        <Form>
+                                            <ul className="nav nav-tabs" role="tablist">
+
+                                                <li role="presentation" className="active">
+                                                    <Link to="#personal" aria-controls="personal" role="tab"
+                                                          data-toggle="tab" aria-expanded="true">
+                                                        <h6>Personal Account</h6>
+                                                        <span>I'm looking for a job</span>
+                                                    </Link>
+                                                </li>
+
+                                                <li role="presentation" className="">
+                                                    <Link to="#company" aria-controls="company" role="tab"
+                                                          data-toggle="tab" aria-expanded="false">
+                                                        <h6>Company Account</h6>
+                                                        <span>We are hiring</span>
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                            <div className="tab-content ptb60">
+                                                <div role="tabpanel" className="tab-pane active" id="personal">
+                                                    <div className="row">
+                                                        <div className="col-md-8 col-md-offset-2">
+                                                            <div className="form-group">
+                                                                <label>Full Name</label>
+                                                                <Field type="text" name="fullName"
+                                                                       className="form-control"/>
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label>Username</label>
+                                                                <Field
+                                                                    type="text"
+                                                                    name="username"
+                                                                    className="form-control"
+                                                                />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label>E-mail</label>
+                                                                <Field
+                                                                    type="email"
+                                                                    name="email"
+                                                                    className="form-control"
+                                                                />
+                                                            </div>
+                                                            <div className="form-group text-left">
+                                                                <Field
+                                                                    type="checkbox"
+                                                                    name="agree"
+                                                                    id="agree"
+                                                                    className="mr10"
+                                                                />
+                                                                <label htmlFor="agree">
+                                                                    Agree with the{' '}
+                                                                    <Link to="#">Terms and Conditions</Link>
+                                                                </label>
+                                                            </div>
+                                                            <div className="form-group text-center nomargin">
+                                                                <button
+                                                                    type="submit"
+                                                                    className="btn btn-blue btn-effect"
+                                                                    disabled={isSubmitting}
+                                                                >
+                                                                    {isSubmitting
+                                                                        ? 'Creating Account...'
+                                                                        : 'Create Account'}
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div role="tabpanel" className="tab-pane" id="company">
+                                                    <div className="row">
+
+                                                        <div className="col-md-6">
+
+                                                            <div className="form-group">
+                                                                <label>Company Name</label>
+                                                                <Field type="text" name="Company Name" className="form-control"/>
+                                                            </div>
+
+                                                            <div className="form-group">
+                                                                <label>E-mail</label>
+                                                                <Field type="email" name="email" className="form-control"/>
+                                                            </div>
+
+                                                            <div className="form-group">
+                                                                <label>Address</label>
+                                                                <Field type="text" name="address" className="form-control"/>
+                                                            </div>
+
+                                                            <div className="form-group">
+                                                                <label>Branch</label>
+                                                                <Field type="text" name="Branch" className="form-control"/>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div className="col-md-6">
+
+                                                            <div className="form-group">
+                                                                <label>Short Name</label>
+                                                                <Field type="text" name="Nick name" className="form-control"/>
+                                                            </div>
+
+                                                            <div className="form-group">
+                                                                <label>Number Of Employees</label>
+                                                                <Field type="text" name="Number Of Employees" className="form-control"/>
+                                                            </div>
+
+                                                            <div className="form-group">
+                                                                <label>Website</label>
+                                                                <Field type="text" name={"Website"} className="form-control"/>
+                                                            </div>
+
+                                                            <div className="form-group">
+                                                                <label>Phone</label>
+                                                                <Field type="text" name={"Phone"} className="form-control"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="row mt20">
+                                                        <div className="col-md-12 text-center">
+
+                                                            <div className="form-group text-left">
+                                                                <Field
+                                                                    type="checkbox"
+                                                                    name="agree"
+                                                                    id="agree"
+                                                                    className="mr10"
+                                                                />
+                                                                <label htmlFor="agree">
+                                                                    Agree with the{' '}
+                                                                    <Link to="#">Terms and Conditions</Link>
+                                                                </label>
+                                                            </div>
+
+                                                            <div className="form-group nomargin">
+                                                                <button type="submit"
+                                                                        className="btn btn-blue btn-effect">create
+                                                                    account
+                                                                </button>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </Form>
+                                    )}
+                                </Formik>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </>
-    )
-}
+    );
+};
+
+export default Register;
