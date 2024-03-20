@@ -28,6 +28,7 @@ export default function Navbar() {
             const response = await dispatch(loginUser(values));
             const data = response.payload.data;
             await navigate(data.roles.length > 1 ? 'admin' : '/');
+            console.log("Success")
         } catch (error) {
             console.error("Login failed:", error);
         }
@@ -285,33 +286,34 @@ export default function Navbar() {
                                 onSubmit={handleLogin}
                             >
                                 {({errors, touched}) => (
-                                    <Form>
-                                        <div id="cd-login">
-                                            <form className="cd-form">
-                                                <p className="fieldset">
-                                                    <label className="image-replace cd-email"
-                                                           htmlFor="signin-email">E-mail</label>
-                                                    <Field name={"email"} className="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail"/>
-                                                </p>
-                                                <p className="fieldset">
-                                                    <label className="image-replace cd-password"
-                                                           htmlFor="signin-password">Password</label>
-                                                    <Field name={"password"} className="full-width has-padding has-border"
-                                                           id="signin-password"
-                                                           type="password" placeholder="Password"/>
-                                                </p>
-                                                <p className="fieldset">
-                                                    <Field type="checkbox" id="remember-me" defaultChecked/>
-                                                    <label htmlFor="remember-me">Remember me</label>
-                                                </p>
-                                                <p className="fieldset">
-                                                    <button type="submit" value="Login"
-                                                            className="btn btn-blue btn-effect">Login
-                                                    </button>
-                                                </p>
-                                            </form>
-                                        </div>
-                                    </Form>
+                                    <div id="cd-login">
+                                        <Form className="cd-form">
+                                            <div className="fieldset">
+                                                <label className="image-replace cd-email"
+                                                       htmlFor="signin-email">E-mail</label>
+                                                <Field name={"email"} className="full-width has-padding has-border"
+                                                       id="signin-email" type="email" placeholder="E-mail"/>
+                                            </div>
+                                            <div className="fieldset">
+                                                <label className="image-replace cd-password"
+                                                       htmlFor="signin-password">Password</label>
+                                                <Field name={"password"} className="full-width has-padding has-border"
+                                                       id="signin-password"
+                                                       type="password" placeholder="Password"/>
+                                            </div>
+                                            <div className="fieldset">
+                                                <Field type="checkbox" id="remember-me" defaultChecked/>
+                                                <label htmlFor="remember-me">Remember me</label>
+                                            </div>
+                                            <div className="fieldset">
+                                                <button type="submit" value="Login"
+                                                        className="btn btn-blue btn-effect"
+                                                        style={{width: "100%"}}>Login
+                                                </button>
+                                            </div>
+                                            <Link to={"register"}>I don't have account</Link>
+                                        </Form>
+                                    </div>
                                 )}
                             </Formik>
                         </div>
