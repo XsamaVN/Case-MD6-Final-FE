@@ -279,31 +279,32 @@ export default function Navbar() {
                                     handleLogin(values)
                                 }}>
                                 {({errors, touched}) => (
-
                                     <div id="cd-login">
                                         <Form className="cd-form">
-                                            <p className="fieldset">
+                                            <div className="fieldset">
                                                 <label className="image-replace cd-email"
                                                        htmlFor="signin-email">E-mail</label>
                                                 <Field name={"email"} className="full-width has-padding has-border"
                                                        id="signin-email" type="email" placeholder="E-mail"/>
-                                            </p>
-                                            <p className="fieldset">
+                                            </div>
+                                            <div className="fieldset">
                                                 <label className="image-replace cd-password"
                                                        htmlFor="signin-password">Password</label>
                                                 <Field name={"password"} className="full-width has-padding has-border"
                                                        id="signin-password"
                                                        type="password" placeholder="Password"/>
-                                            </p>
-                                            <p className="fieldset">
+                                            </div>
+                                            <div className="fieldset">
                                                 <Field type="checkbox" id="remember-me" defaultChecked/>
                                                 <label htmlFor="remember-me">Remember me</label>
-                                            </p>
-                                            <p className="fieldset">
-                                                <button type="submit"
-                                                        className="btn btn-blue btn-effect">Login
+                                            </div>
+                                            <div className="fieldset">
+                                                <button type="submit" value="Login"
+                                                        className="btn btn-blue btn-effect"
+                                                        style={{width: "100%"}}>Login
                                                 </button>
-                                            </p>
+                                            </div>
+                                            <Link to={"register"}>I don't have account</Link>
                                         </Form>
                                     </div>
                                 )}

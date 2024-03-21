@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
@@ -9,7 +9,7 @@ import {Field, Form, Formik} from 'formik';
 const Register = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    const [role, setRole] = useState('user');
     const loginSchema = yup.object().shape({
         email: yup.string().email('Invalid email').required('Email is required'),
     });
@@ -19,12 +19,14 @@ const Register = () => {
             let data = {
                 email: values.email,
             };
-            await dispatch(registerUser(data));
-            navigate('/login');
+            await dispatch(registerUser({id: role === 'user' ? 2 : 3, data: values}));
+            await navigate('/');
         } catch (error) {
             console.error('Registration failed:', error);
-            // Handle registration error
         }
+    };
+    const handleRoleChange = (selectedRole) => {
+        setRole(selectedRole);
     };
 
     return (
@@ -71,16 +73,28 @@ const Register = () => {
                                             <ul className="nav nav-tabs" role="tablist">
 
                                                 <li role="presentation" className="active">
-                                                    <Link to="#personal" aria-controls="personal" role="tab"
-                                                          data-toggle="tab" aria-expanded="true">
+                                                    <Link
+                                                        to="#personal"
+                                                        aria-controls="personal"
+                                                        role="2"
+                                                        data-toggle="tab"
+                                                        aria-expanded="true"
+                                                        onClick={() => handleRoleChange('user')}
+                                                    >
                                                         <h6>Personal Account</h6>
                                                         <span>I'm looking for a job</span>
                                                     </Link>
                                                 </li>
 
                                                 <li role="presentation" className="">
-                                                    <Link to="#company" aria-controls="company" role="tab"
-                                                          data-toggle="tab" aria-expanded="false">
+                                                    <Link
+                                                        to="#company"
+                                                        aria-controls="company"
+                                                        role="3"
+                                                        data-toggle="tab"
+                                                        aria-expanded="false"
+                                                        onClick={() => handleRoleChange('enterprise')}
+                                                    >
                                                         <h6>Company Account</h6>
                                                         <span>We are hiring</span>
                                                     </Link>
@@ -144,22 +158,26 @@ const Register = () => {
 
                                                             <div className="form-group">
                                                                 <label>Company Name</label>
-                                                                <Field type="text" name="Company Name" className="form-control"/>
+                                                                <Field type="text" name="Company Name"
+                                                                       className="form-control"/>
                                                             </div>
 
                                                             <div className="form-group">
                                                                 <label>E-mail</label>
-                                                                <Field type="email" name="email" className="form-control"/>
+                                                                <Field type="email" name="email"
+                                                                       className="form-control"/>
                                                             </div>
 
                                                             <div className="form-group">
                                                                 <label>Address</label>
-                                                                <Field type="text" name="address" className="form-control"/>
+                                                                <Field type="text" name="address"
+                                                                       className="form-control"/>
                                                             </div>
 
                                                             <div className="form-group">
                                                                 <label>Branch</label>
-                                                                <Field type="text" name="Branch" className="form-control"/>
+                                                                <Field type="text" name="Branch"
+                                                                       className="form-control"/>
                                                             </div>
 
                                                         </div>
@@ -168,22 +186,26 @@ const Register = () => {
 
                                                             <div className="form-group">
                                                                 <label>Short Name</label>
-                                                                <Field type="text" name="Nick name" className="form-control"/>
+                                                                <Field type="text" name="Nick name"
+                                                                       className="form-control"/>
                                                             </div>
 
                                                             <div className="form-group">
                                                                 <label>Number Of Employees</label>
-                                                                <Field type="text" name="Number Of Employees" className="form-control"/>
+                                                                <Field type="text" name="Number Of Employees"
+                                                                       className="form-control"/>
                                                             </div>
 
                                                             <div className="form-group">
                                                                 <label>Website</label>
-                                                                <Field type="text" name={"Website"} className="form-control"/>
+                                                                <Field type="text" name={"Website"}
+                                                                       className="form-control"/>
                                                             </div>
 
                                                             <div className="form-group">
                                                                 <label>Phone</label>
-                                                                <Field type="text" name={"Phone"} className="form-control"/>
+                                                                <Field type="text" name={"Phone"}
+                                                                       className="form-control"/>
                                                             </div>
                                                         </div>
                                                     </div>
