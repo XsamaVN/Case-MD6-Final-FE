@@ -262,6 +262,9 @@ Author URI: gnodesign.com
         /*----------------------------------------------------
           LOGIN POP UP FUNCTION
         ----------------------------------------------------*/
+        /*----------------------------------------------------
+     LOGIN POP UP FUNCTION
+ ----------------------------------------------------*/
         var $form_modal = $('.cd-user-modal'),
             $form_login = $form_modal.find('#cd-login'),
             $form_signup = $form_modal.find('#cd-signup'),
@@ -271,38 +274,39 @@ Author URI: gnodesign.com
             $tab_signup = $form_modal_tab.children('li').eq(1).children('a'),
             $main_nav = $('#main-nav ul .login-btn');
 
-        //open modal
-        $main_nav.on('click', function (event) {
+// Open modal
+        $main_nav.on('click', function(event) {
             if ($(event.target).is($main_nav)) {
-                // on mobile open the submenu
+                // On mobile open the submenu
                 $(this).children('').addClass('is-visible');
             } else {
-                // on mobile close submenu
+                // On mobile close submenu
                 $main_nav.children('').removeClass('is-visible');
-                //show modal layer
+                // Show modal layer
                 $form_modal.addClass('is-visible');
-                //show the selected form
-                ($(event.target).is('#modal_trigger')) ? login_selected(): login_page();
+                // Show the selected form
+                login_selected(); // Always call login_selected() instead of login_page()
             }
         });
 
-        //close modal
-        $('.cd-user-modal').on('click', function (event) {
+// Close modal
+        $('.cd-user-modal').on('click', function(event) {
             if ($(event.target).is($form_modal) || $(event.target).is('.cd-close-form')) {
                 $form_modal.removeClass('is-visible');
             }
         });
-        //close modal when clicking the esc keyboard button
-        $(document).on('keyup', function (event) {
+
+// Close modal when clicking the ESC keyboard button
+        $(document).on('keyup', function(event) {
             if (event.which == '27') {
                 $form_modal.removeClass('is-visible');
             }
         });
 
-        //switch from a tab to another
-        $form_modal_tab.on('click', function (event) {
+// Switch from a tab to another
+        $form_modal_tab.on('click', function(event) {
             event.preventDefault();
-            ($(event.target).is($tab_login)) ? login_selected(): signup_selected();
+            ($(event.target).is($tab_login)) ? login_selected() : signup_selected();
         });
 
         function login_selected() {
@@ -320,6 +324,7 @@ Author URI: gnodesign.com
             $tab_login.removeClass('selected');
             $tab_signup.addClass('selected');
         }
+
 
 
 

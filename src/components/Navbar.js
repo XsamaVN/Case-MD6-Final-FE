@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import React from "react";
+import React, {useState} from "react";
 import {useNavigate} from "react-router";
 import * as yup from "yup";
 import {loginUser} from "../services/UserService";
@@ -8,6 +8,7 @@ import {Field, Form, Formik} from "formik";
 
 export default function Navbar() {
     const dispatch = useDispatch();
+    const [showLoginForm, setShowLoginForm] = useState(true);
     let navigate = useNavigate();
     const user = useSelector(state => {
         console.log(state)
@@ -311,7 +312,7 @@ export default function Navbar() {
                                                         style={{width: "100%"}}>Login
                                                 </button>
                                             </div>
-                                            <Link to={"register"}>I don't have account</Link>
+                                            <Link to={"register"} onClick={() => setShowLoginForm(false)}>I don't have account</Link>
                                         </Form>
                                     </div>
                                 )}
