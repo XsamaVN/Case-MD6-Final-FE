@@ -106,98 +106,98 @@ Author URI: gnodesign.com
            PUSH MENU FOR DEVICES
          ----------------------------------------------------*/
 
-        $.fn.jPushMenu = function (customOptions) {
-            var o = $.extend({}, $.fn.jPushMenu.defaultOptions, customOptions);
-
-            /* add class to the body.*/
-
-            $('body').addClass(o.bodyClass);
-            $(this).addClass('jPushMenuBtn');
-            $(this).on('click', function () {
-                var target = '',
-                    push_direction = '';
-
-
-                if ($(this).is('.' + o.showLeftClass)) {
-                    target = '.cbp-spmenu-left';
-                    push_direction = 'toright';
-                } else if ($(this).is('.' + o.showRightClass)) {
-                    target = '.cbp-spmenu-right';
-                    push_direction = 'toleft';
-                } else if ($(this).is('.' + o.showTopClass)) {
-                    target = '.cbp-spmenu-top';
-                } else if ($(this).is('.' + o.showBottomClass)) {
-                    target = '.cbp-spmenu-bottom';
-                }
-
-
-                $(this).toggleClass(o.activeClass);
-                $(target).toggleClass(o.menuOpenClass);
-
-                if ($(this).is('.' + o.pushBodyClass)) {
-                    $('body').toggleClass('cbp-spmenu-push-' + push_direction);
-                }
-
-                /* disable all other button*/
-                $('.jPushMenuBtn').not($(this)).toggleClass('disabled');
-
-                return false;
-            });
-            var jPushMenu = {
-                close: function (o) {
-                    $('.jPushMenuBtn,body,.cbp-spmenu').removeClass('disabled active cbp-spmenu-open cbp-spmenu-push-toleft cbp-spmenu-push-toright');
-                }
-            }
-
-            if (o.closeOnClickOutside) {
-                $(document).on('click', function () {
-                    jPushMenu.close();
-                });
-
-                $(document).on('click touchstart', function () {
-                    jPushMenu.close();
-                });
-
-                $('.cbp-spmenu,.toggle-menu').on('click', function (e) {
-                    e.stopPropagation();
-                });
-
-                $('.cbp-spmenu,.toggle-menu').on('click touchstart', function (e) {
-                    e.stopPropagation();
-                });
-            }
-
-            // On Click Link
-            if (o.closeOnClickLink) {
-                $('.cbp-spmenu a').on('click', function () {
-                    jPushMenu.close();
-                });
-            }
-        };
-
-        /* in case you want to customize class name,
-         *  do not directly edit here, use function parameter when call jPushMenu.
-         */
-        $.fn.jPushMenu.defaultOptions = {
-            bodyClass: 'cbp-spmenu-push',
-            activeClass: 'menu-active',
-            showLeftClass: 'menu-left',
-            showRightClass: 'menu-right',
-            showTopClass: 'menu-top',
-            showBottomClass: 'menu-bottom',
-            menuOpenClass: 'cbp-spmenu-open',
-            pushBodyClass: 'push-body',
-            closeOnClickOutside: true,
-            closeOnClickInside: true,
-            closeOnClickLink: false
-        };
-
-        //initilizer
-        var toggleMenu = $('.toggle-menu');
-
-        $(toggleMenu).jPushMenu({
-            closeOnClickLink: false
-        });
+        // $.fn.jPushMenu = function (customOptions) {
+        //     var o = $.extend({}, $.fn.jPushMenu.defaultOptions, customOptions);
+        //
+        //     /* add class to the body.*/
+        //
+        //     $('body').addClass(o.bodyClass);
+        //     $(this).addClass('jPushMenuBtn');
+        //     $(this).on('click', function () {
+        //         var target = '',
+        //             push_direction = '';
+        //
+        //
+        //         if ($(this).is('.' + o.showLeftClass)) {
+        //             target = '.cbp-spmenu-left';
+        //             push_direction = 'toright';
+        //         } else if ($(this).is('.' + o.showRightClass)) {
+        //             target = '.cbp-spmenu-right';
+        //             push_direction = 'toleft';
+        //         } else if ($(this).is('.' + o.showTopClass)) {
+        //             target = '.cbp-spmenu-top';
+        //         } else if ($(this).is('.' + o.showBottomClass)) {
+        //             target = '.cbp-spmenu-bottom';
+        //         }
+        //
+        //
+        //         $(this).toggleClass(o.activeClass);
+        //         $(target).toggleClass(o.menuOpenClass);
+        //
+        //         if ($(this).is('.' + o.pushBodyClass)) {
+        //             $('body').toggleClass('cbp-spmenu-push-' + push_direction);
+        //         }
+        //
+        //         /* disable all other button*/
+        //         // $('.jPushMenuBtn').not($(this)).toggleClass('disabled');
+        //
+        //         return false;
+        //     });
+        //     var jPushMenu = {
+        //         close: function (o) {
+        //             $('.jPushMenuBtn,body,.cbp-spmenu').removeClass('disabled active cbp-spmenu-open cbp-spmenu-push-toleft cbp-spmenu-push-toright');
+        //         }
+        //     }
+        //
+        //     if (o.closeOnClickOutside) {
+        //         $(document).on('click', function () {
+        //             jPushMenu.close();
+        //         });
+        //
+        //         $(document).on('click touchstart', function () {
+        //             jPushMenu.close();
+        //         });
+        //
+        //         $('.cbp-spmenu,.toggle-menu').on('click', function (e) {
+        //             e.stopPropagation();
+        //         });
+        //
+        //         $('.cbp-spmenu,.toggle-menu').on('click touchstart', function (e) {
+        //             e.stopPropagation();
+        //         });
+        //     }
+        //
+        //     // On Click Link
+        //     if (o.closeOnClickLink) {
+        //         $('.cbp-spmenu a').on('click', function () {
+        //             jPushMenu.close();
+        //         });
+        //     }
+        // };
+        //
+        // /* in case you want to customize class name,
+        //  *  do not directly edit here, use function parameter when call jPushMenu.
+        //  */
+        // $.fn.jPushMenu.defaultOptions = {
+        //     bodyClass: 'cbp-spmenu-push',
+        //     activeClass: 'menu-active',
+        //     showLeftClass: 'menu-left',
+        //     showRightClass: 'menu-right',
+        //     showTopClass: 'menu-top',
+        //     showBottomClass: 'menu-bottom',
+        //     menuOpenClass: 'cbp-spmenu-open',
+        //     pushBodyClass: 'push-body',
+        //     closeOnClickOutside: true,
+        //     closeOnClickInside: true,
+        //     closeOnClickLink: false
+        // };
+        //
+        // //initilizer
+        // var toggleMenu = $('.toggle-menu');
+        //
+        // $(toggleMenu).jPushMenu({
+        //     closeOnClickLink: false
+        // });
 
 
 
@@ -301,7 +301,7 @@ Author URI: gnodesign.com
 
         //switch from a tab to another
         $form_modal_tab.on('click', function (event) {
-            event.preventDefault();
+            // event.preventDefault();
             ($(event.target).is($tab_login)) ? login_selected(): signup_selected();
         });
 
@@ -590,7 +590,7 @@ Author URI: gnodesign.com
 
         //smooth scroll to top
         back_to_top.on('click', function (event) {
-            event.preventDefault();
+            // event.preventDefault();
             $('body,html').animate({
                 scrollTop: 0,
             }, scroll_top_duration);
@@ -633,7 +633,7 @@ Author URI: gnodesign.com
           CONTACT FORM
         ----------------------------------------------------*/
         $("#contact-form").on('submit', function (e) {
-            e.preventDefault();
+            // e.preventDefault();
 
             //Get input field values from HTML form
             var user_name = $("input[name=name]").val();
@@ -1020,7 +1020,7 @@ Author URI: gnodesign.com
 
         // filter items on button click
         $(portfolioFilters).on('click', function (e) {
-            e.preventDefault();
+            // e.preventDefault();
 
             //removes class from all items
             $(portfolioFilters).removeClass("current");

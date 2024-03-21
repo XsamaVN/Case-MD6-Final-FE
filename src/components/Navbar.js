@@ -7,12 +7,16 @@ import {loginUser} from "../services/UserService";
 import {Field, Form, Formik} from "formik";
 import {current} from "@reduxjs/toolkit";
 
+// function checkrole(values) {
+//     if(values.)
+// }
+
 export default function Navbar() {
     const dispatch = useDispatch();
     let navigate = useNavigate();
     const user = useSelector(state => {
         console.log(state)
-        return state.users.currentUser
+        return state.users.users
     });
     const loginSchema = yup.object().shape({
         email: yup.string().email("Invalid email").required("Email is required"),
@@ -28,6 +32,8 @@ export default function Navbar() {
     const handleLogin = async (values) => {
         try {
          await dispatch(loginUser(values));
+         // checkrole(values)
+            navigate('/');
 
             // const data = response.payload.data;
             // await navigate(data.roles[0].length > 0 ? '"ROLE_USER"' : '/');
@@ -36,7 +42,6 @@ export default function Navbar() {
         }
     };
     const handleLogout = () => {
-        alert("a")
         localStorage.clear();
         navigate('/');
     }
@@ -243,12 +248,10 @@ export default function Navbar() {
                                     <li className="dropdown simple-menu">
                                         <Link to="#">{localStorage.getItem("currentUser")} <i
                                             className="fa fa-angle-down"></i></Link>
-                                        <ul className="dropdown-menu nav-prf">
+                                        <ul className="dropdown-menu nav-prf" >
                                             <li><Link to="#">Profile</Link></li>
-                                            <li><button type={"submit"} onClick={()=>{
-                                                alert("a")
-                                                localStorage.clear();
-                                                navigate('/');
+                                            <li><button onClick={()=>{
+                                              handleLogout()
                                             }} className="btn btn-danger btn-effect" >Logout</button></li>
                                         </ul>
                                     </li>}
