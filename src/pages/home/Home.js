@@ -5,11 +5,13 @@ import Footer from "../../components/Footer";
 export default function Home() {
     return (
         <>
-            <Navbar/>
-            <div className={'row'}>
+            <div className="container-fluid bg-white p-0">
+                <Navbar/>
+                <div className={'row'}>
                     <Outlet></Outlet>
+                </div>
+                <Footer/>
             </div>
-            <Footer/>
         </>
     )
 }

@@ -12,8 +12,8 @@ function App() {
             <div className={'container-fluid'}>
                 <Routes>
                     <Route path={''} element={<Home/>}>
-                        <Route path={'register'} element={<Register/>}></Route>
                         <Route path={''} element={<Body/>}></Route>
+                        <Route path={'register'} element={<Register/>}></Route>
                         <Route path={'enterprise'} element={<Enterprise/>}></Route>
                     </Route>
                 </Routes>
