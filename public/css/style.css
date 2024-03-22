@@ -391,3 +391,21 @@
     padding-right: 0;
     border-right: none;
 }
+
+.register-header {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    background: #00B074;
+
+}
+
+.register-body {
+    padding-bottom: 20px;
+    border: 1px solid #dee2e6;
+    box-shadow: 5px  5px 5px #888888;
+}
+
+#company {
+    padding: 0 20px;
+}
