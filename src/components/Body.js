@@ -1,7 +1,58 @@
 import {Link} from "react-router-dom";
+import $ from 'jquery';
+import React, { useEffect } from 'react';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+import 'owl.carousel/dist/owl.carousel';
 import img from '../img/carousel-1.jpg'
 
+
+
+
 export default function Body() {
+
+    // useEffect(() => {
+    //
+    //
+    //
+    //         // Header carousel
+    //         $(".header-carousel").owlCarousel({
+    //             autoplay: true,
+    //             smartSpeed: 1500,
+    //             items: 1,
+    //             dots: true,
+    //             loop: true,
+    //             nav : true,
+    //             navText : [
+    //                 '<i class="bi bi-chevron-left"></i>',
+    //                 '<i class="bi bi-chevron-right"></i>'
+    //             ]
+    //         });
+    //
+    //
+    //         // Testimonials carousel
+    //         $(".testimonial-carousel").owlCarousel({
+    //             autoplay: true,
+    //             smartSpeed: 1000,
+    //             center: true,
+    //             margin: 24,
+    //             dots: true,
+    //             loop: true,
+    //             nav : false,
+    //             responsive: {
+    //                 0:{
+    //                     items:1
+    //                 },
+    //                 768:{
+    //                     items:2
+    //                 },
+    //                 992:{
+    //                     items:3
+    //                 }
+    //             }
+    //         });
+    //
+    // }, []);
     return (
        <>
            {/*<div id="spinner" className="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">*/}
@@ -81,6 +132,129 @@ export default function Body() {
                </div>
            </div>
             {/*Carousel End */}
+
+          {/*Category Start */}
+           <div className="container-xxl py-5">
+               <div className="container">
+                   <h1 className="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Explore By Category</h1>
+                   <div className="row g-4">
+                       <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                           <a className="cat-item rounded p-4" href="">
+                               <i className="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
+                               <h6 className="mb-3">Marketing</h6>
+                               <p className="mb-0">123 Vacancy</p>
+                           </a>
+                       </div>
+                       <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                           <a className="cat-item rounded p-4" href="">
+                               <i className="fa fa-3x fa-headset text-primary mb-4"></i>
+                               <h6 className="mb-3">Customer Service</h6>
+                               <p className="mb-0">123 Vacancy</p>
+                           </a>
+                       </div>
+                       <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                           <a className="cat-item rounded p-4" href="">
+                               <i className="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                               <h6 className="mb-3">Human Resource</h6>
+                               <p className="mb-0">123 Vacancy</p>
+                           </a>
+                       </div>
+                       <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                           <a className="cat-item rounded p-4" href="">
+                               <i className="fa fa-3x fa-tasks text-primary mb-4"></i>
+                               <h6 className="mb-3">Project Management</h6>
+                               <p className="mb-0">123 Vacancy</p>
+                           </a>
+                       </div>
+                       <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                           <a className="cat-item rounded p-4" href="">
+                               <i className="fa fa-3x fa-chart-line text-primary mb-4"></i>
+                               <h6 className="mb-3">Business Development</h6>
+                               <p className="mb-0">123 Vacancy</p>
+                           </a>
+                       </div>
+                       <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                           <a className="cat-item rounded p-4" href="">
+                               <i className="fa fa-3x fa-hands-helping text-primary mb-4"></i>
+                               <h6 className="mb-3">Sales & Communication</h6>
+                               <p className="mb-0">123 Vacancy</p>
+                           </a>
+                       </div>
+                       <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                           <a className="cat-item rounded p-4" href="">
+                               <i className="fa fa-3x fa-book-reader text-primary mb-4"></i>
+                               <h6 className="mb-3">Teaching & Education</h6>
+                               <p className="mb-0">123 Vacancy</p>
+                           </a>
+                       </div>
+                       <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                           <a className="cat-item rounded p-4" href="">
+                               <i className="fa fa-3x fa-drafting-compass text-primary mb-4"></i>
+                               <h6 className="mb-3">Design & Creative</h6>
+                               <p className="mb-0">123 Vacancy</p>
+                           </a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+            {/*Category End */}
+
+           <div className="container-xxl py-5">
+               <div className="container">
+                   <h1 className="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
+                   <div className="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+                       <ul className="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                           <li className="nav-item">
+                               <a className="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
+                                   <h6 className="mt-n1 mb-0">Featured</h6>
+                               </a>
+                           </li>
+                           <li className="nav-item">
+                               <a className="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
+                                   <h6 className="mt-n1 mb-0">Full Time</h6>
+                               </a>
+                           </li>
+                           <li className="nav-item">
+                               <a className="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
+                                   <h6 className="mt-n1 mb-0">Part Time</h6>
+                               </a>
+                           </li>
+                       </ul>
+                       <div className="tab-content">
+                           <div id="tab-1" className="tab-pane fade show p-0 active">
+                               <div className="job-item p-4 mb-4">
+                                   <div className="row g-4">
+                                       <div className="col-sm-12 col-md-8 d-flex align-items-center">
+                                           <img className="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style={{ width: '80px', height: '80px' }} />
+                                           <div className="text-start ps-4">
+                                               <h5 className="mb-3">Software Engineer</h5>
+                                               <span className="text-truncate me-3"><i className="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                               <span className="text-truncate me-3"><i className="far fa-clock text-primary me-2"></i>Full Time</span>
+                                               <span className="text-truncate me-0"><i className="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                           </div>
+                                       </div>
+                                       <div className="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                           <div className="d-flex mb-3">
+                                               <a className="btn btn-light btn-square me-3" href=""><i className="far fa-heart text-primary"></i></a>
+                                               <a className="btn btn-primary" href="">Apply Now</a>
+                                           </div>
+                                           <small className="text-truncate"><i className="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                       </div>
+                                   </div>
+                               </div>
+                               {/* Các job item khác ở đây */}
+                               <a className="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
+                           </div>
+                           <div id="tab-2" className="tab-pane fade show p-0">
+                               {/* Nội dung tab Full Time ở đây */}
+                           </div>
+                           <div id="tab-3" className="tab-pane fade show p-0">
+                               {/* Nội dung tab Part Time ở đây */}
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
        </>
     );
 }
