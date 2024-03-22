@@ -715,7 +715,7 @@ export default function Body() {
                                         <i className="fa fa-quote-left fa-2x text-primary mb-3"></i>
                                         <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                                         <div className="d-flex align-items-center">
-                                            <img className="img-fluid flex-shrink-0 rounded" src="/img/testimonial-1.jpg" style={{ width: '50px', height: '50px' }} />
+                                            <img className="img-fluid flex-shrink-0 rounded" src="/src/img/testimonial-1.jpg" style={{ width: '50px', height: '50px' }} />
                                             <div className="ps-3">
                                                 <h5 className="mb-1">Client Name</h5>
                                                 <small>Profession</small>
