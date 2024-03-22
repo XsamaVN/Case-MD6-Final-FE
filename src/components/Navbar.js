@@ -4,12 +4,6 @@ import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router";
 import * as yup from "yup";
 import {loginUser} from "../services/UserService";
-import {Field, Form, Formik} from "formik";
-import {current} from "@reduxjs/toolkit";
-
-// function checkrole(values) {
-//     if(values.)
-// }
 
 export default function Navbar() {
     const dispatch = useDispatch();
@@ -31,12 +25,10 @@ export default function Navbar() {
 
     const handleLogin = async (values) => {
         try {
-         await dispatch(loginUser(values));
-         // checkrole(values)
-            navigate('/');
-
-            // const data = response.payload.data;
-            // await navigate(data.roles[0].length > 0 ? '"ROLE_USER"' : '/');
+            const response = await dispatch(loginUser(values));
+            const data = response.payload.data;
+            await navigate(data.roles.length > 1 ? 'admin' : '/');
+            console.log("Success")
         } catch (error) {
             console.error("Login failed:", error);
         }
@@ -60,6 +52,7 @@ export default function Navbar() {
                 setIsSticky(false);
             }
         }
+
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -69,8 +62,7 @@ export default function Navbar() {
 
     return (
         <>
-
-            <div className={`container-fluid nav-bar bg-transparent ${isSticky ? 'sticky-top' : ''}`} >
+            <div className={`container-fluid nav-bar bg-transparent ${isSticky ? 'sticky-top' : ''}`}>
                 <nav className="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
                     <a href="index.html" className="navbar-brand d-flex align-items-center text-center">
                         <div className="icon p-2 me-2">
@@ -104,11 +96,27 @@ export default function Navbar() {
                             </div>
                             <a href="contact.html" className="nav-item nav-link">Contact</a>
                         </div>
-                        {(currentUser === null || currentUser === undefined) ?
-                            <button className="btn btn-primary px-3 d-none d-lg-flex" onClick={handleLogin}>Login</button>
-                            :
-                            <button className="btn btn-primary px-3 d-none d-lg-flex" onClick={handleLogout}>Logout</button>
-                        }
+                        <li className="header__navbar-item header__navbar-user">
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy8r6t_A-qGsYI-ex-KeovQDi1XANwlZTjFw&usqp=CAU"
+                                alt="" className="header__navbar-user-img"/>
+                            <span className="header__navbar-user-name">Hải Đỗ</span>
+
+                            <ul className="header__navbar-user-menu">
+                                <li className="header__navbar-user-item">
+                                    <a href="">Tài khoản của tôi</a>
+                                </li>
+                                <li className="header__navbar-user-item">
+                                    <a href="">Địa chỉ của tôi</a>
+                                </li>
+                                <li className="header__navbar-user-item">
+                                    <a href="">Đơn mua</a>
+                                </li>
+                                <li className="header__navbar-user-item header__navbar-user-item--separate">
+                                    <a href="">Đăng xuất</a>
+                                </li>
+                            </ul>
+                        </li>
                     </div>
                 </nav>
             </div>
