@@ -1,218 +1,167 @@
+import img from "../../../img/carousel-1.jpg";
+import React from "react";
+import {Link} from "react-router-dom";
+
 export default function Enterprise(){
     return(
         <>
-            <section className="profile-header">
-            </section>
-            <section className="pb80" id="company-profile">
-                <div className="container">
+            <div className="container py-5 h-100">
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col col-lg-9 col-xl-7">
+                        <div className="card">
+                            <div className="rounded-top text-white d-flex flex-row" style={{backgroundColor: "#00B074", height:"200px"}}>
 
-
-                    <div className="row company-profile">
-
-
-                        <div className="col-md-3 col-xs-12">
-                            <div className="profile-photo">
-                                <img src="images/companies/envato.svg" className="img-responsive" alt=""/>
+                                <div className="ms-4 mt-5 d-flex flex-column" style={{width: "150px"}}>
+                                    {/*<button type="button" className="btn btn-outline-dark" data-mdb-ripple-color="dark"*/}
+                                    {/*        style={{zIndex: 1, marginTop: "160px"}}>*/}
+                                    {/*    Edit profile*/}
+                                    {/*</button>*/}
+                                    <Link to={""} className="btn btn-primary" data-mdb-ripple-color="dark" style={{zIndex: 1, marginTop: "160px"}}>Edit profile</Link>
+                                </div>
+                                <div className="ms-3" style={{marginTop: "130px"}}>
+                                    <h5>Andy Horwitz</h5>
+                                    <p>New York</p>
+                                </div>
                             </div>
-
-
-                            <ul className="social-btns list-inline text-center mt20">
-
-                                <li>
-                                    <a href="#" className="social-btn-roll facebook transparent">
-                                        <div className="social-btn-roll-icons">
-                                            <i className="social-btn-roll-icon fa fa-facebook"></i>
-                                            <i className="social-btn-roll-icon fa fa-facebook"></i>
+                            <div className="p-4 text-black" style={{backgroundColor: "#f8f9fa"}}>
+                                <div className="d-flex justify-content-end text-center py-1">
+                                    <div>
+                                        <p className="mb-1 h5">253</p>
+                                        <p className="small text-muted mb-0">Photos</p>
+                                    </div>
+                                    <div className="px-3">
+                                        <p className="mb-1 h5">1026</p>
+                                        <p className="small text-muted mb-0">Followers</p>
+                                    </div>
+                                    <div>
+                                        <p className="mb-1 h5">478</p>
+                                        <p className="small text-muted mb-0">Following</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="card-body p-4 text-black">
+                                <div className="mb-5">
+                                    <p className="lead fw-normal mb-1">About</p>
+                                    <div className="p-4" style={{backgroundColor: "#f8f9fa"}}>
+                                        <p className="font-italic mb-1">Web Developer</p>
+                                        <p className="font-italic mb-1">Lives in New York</p>
+                                        <p className="font-italic mb-0">Photographer</p>
+                                    </div>
+                                </div>
+                                <div className="d-flex justify-content-between align-items-center mb-4">
+                                    <p className="lead fw-normal mb-0">Recent recruitment</p>
+                                    <p className="mb-0"><a href="#!" className="text-muted">Show all</a></p>
+                                </div>
+                                <div className="row g-1">
+                                    <div className="col">
+                                        <div className="job-item p-4 mb-4">
+                                            <div className="row g-4">
+                                                <div className="col-sm-12 col-md-8 d-flex align-items-center">
+                                                    <img className="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style={{ width: '80px', height: '80px' }} />
+                                                    <div className="text-start ps-4">
+                                                        <h5 className="mb-3">Software Engineer</h5>
+                                                        <span className="text-truncate me-3"><i className="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                                        <span className="text-truncate me-3"><i className="far fa-clock text-primary me-2"></i>Full Time</span>
+                                                        <span className="text-truncate me-0"><i className="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                                    <div className="d-flex mb-3">
+                                                        <a className="btn btn-light btn-square me-3" href=""><i className="far fa-heart text-primary"></i></a>
+                                                        <a className="btn btn-primary" href="">Apply Now</a>
+                                                    </div>
+                                                    <small className="text-truncate"><i className="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </a>
-                                </li>
-
-
-                                <li>
-                                    <a href="#" className="social-btn-roll twitter transparent">
-                                        <div className="social-btn-roll-icons">
-                                            <i className="social-btn-roll-icon fa fa-twitter"></i>
-                                            <i className="social-btn-roll-icon fa fa-twitter"></i>
+                                        <div className="job-item p-4 mb-4">
+                                            <div className="row g-4">
+                                                <div className="col-sm-12 col-md-8 d-flex align-items-center">
+                                                    <img className="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style={{ width: '80px', height: '80px' }} />
+                                                    <div className="text-start ps-4">
+                                                        <h5 className="mb-3">Software Engineer</h5>
+                                                        <span className="text-truncate me-3"><i className="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                                        <span className="text-truncate me-3"><i className="far fa-clock text-primary me-2"></i>Full Time</span>
+                                                        <span className="text-truncate me-0"><i className="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                                    <div className="d-flex mb-3">
+                                                        <a className="btn btn-light btn-square me-3" href=""><i className="far fa-heart text-primary"></i></a>
+                                                        <a className="btn btn-primary" href="">Apply Now</a>
+                                                    </div>
+                                                    <small className="text-truncate"><i className="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </a>
-                                </li>
-
-
-                                <li>
-                                    <a href="#" className="social-btn-roll google-plus transparent">
-                                        <div className="social-btn-roll-icons">
-                                            <i className="social-btn-roll-icon fa fa-google-plus"></i>
-                                            <i className="social-btn-roll-icon fa fa-google-plus"></i>
+                                        <div className="job-item p-4 mb-4">
+                                            <div className="row g-4">
+                                                <div className="col-sm-12 col-md-8 d-flex align-items-center">
+                                                    <img className="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style={{ width: '80px', height: '80px' }} />
+                                                    <div className="text-start ps-4">
+                                                        <h5 className="mb-3">Software Engineer</h5>
+                                                        <span className="text-truncate me-3"><i className="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                                        <span className="text-truncate me-3"><i className="far fa-clock text-primary me-2"></i>Full Time</span>
+                                                        <span className="text-truncate me-0"><i className="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                                    <div className="d-flex mb-3">
+                                                        <a className="btn btn-light btn-square me-3" href=""><i className="far fa-heart text-primary"></i></a>
+                                                        <a className="btn btn-primary" href="">Apply Now</a>
+                                                    </div>
+                                                    <small className="text-truncate"><i className="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </a>
-                                </li>
-
-
-                                <li>
-                                    <a href="#" className="social-btn-roll instagram transparent">
-                                        <div className="social-btn-roll-icons">
-                                            <i className="social-btn-roll-icon fa fa-instagram"></i>
-                                            <i className="social-btn-roll-icon fa fa-instagram"></i>
+                                        <div className="job-item p-4 mb-4">
+                                            <div className="row g-4">
+                                                <div className="col-sm-12 col-md-8 d-flex align-items-center">
+                                                    <img className="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style={{ width: '80px', height: '80px' }} />
+                                                    <div className="text-start ps-4">
+                                                        <h5 className="mb-3">Software Engineer</h5>
+                                                        <span className="text-truncate me-3"><i className="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                                        <span className="text-truncate me-3"><i className="far fa-clock text-primary me-2"></i>Full Time</span>
+                                                        <span className="text-truncate me-0"><i className="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                                    <div className="d-flex mb-3">
+                                                        <a className="btn btn-light btn-square me-3" href=""><i className="far fa-heart text-primary"></i></a>
+                                                        <a className="btn btn-primary" href="">Apply Now</a>
+                                                    </div>
+                                                    <small className="text-truncate"><i className="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </a>
-                                </li>
-
-
-                                <li>
-                                    <a href="#" className="social-btn-roll linkedin transparent">
-                                        <div className="social-btn-roll-icons">
-                                            <i className="social-btn-roll-icon fa fa-linkedin"></i>
-                                            <i className="social-btn-roll-icon fa fa-linkedin"></i>
+                                        <div className="job-item p-4 mb-4">
+                                            <div className="row g-4">
+                                                <div className="col-sm-12 col-md-8 d-flex align-items-center">
+                                                    <img className="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style={{ width: '80px', height: '80px' }} />
+                                                    <div className="text-start ps-4">
+                                                        <h5 className="mb-3">Software Engineer</h5>
+                                                        <span className="text-truncate me-3"><i className="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                                        <span className="text-truncate me-3"><i className="far fa-clock text-primary me-2"></i>Full Time</span>
+                                                        <span className="text-truncate me-0"><i className="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                                    <div className="d-flex mb-3">
+                                                        <a className="btn btn-light btn-square me-3" href=""><i className="far fa-heart text-primary"></i></a>
+                                                        <a className="btn btn-primary" href="">Apply Now</a>
+                                                    </div>
+                                                    <small className="text-truncate"><i className="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </a>
-                                </li>
-
-                            </ul>
-
-
-                        </div>
-
-                        <div className="col-md-9 col-xs-12">
-                            <div className="profile-descr">
-
-
-                                <div className="profile-title">
-                                    <h2 className="capitalize">envato</h2>
-                                    <h5 className="pt10">Marketplace</h5>
+                                    </div>
                                 </div>
 
-
-                                <div className="profile-details mt20">
-                                    <p>Envato Market is a collection of themed marketplaces, where creatives sell digital assets to help bring your ideas to life.</p>
-                                </div>
-
-                                <ul className="profile-info mt20 nopadding">
-                                    <li>
-                                        <i className="fa fa-map-marker"></i>
-                                        <span>Melbourn, Australia</span>
-                                    </li>
-
-                                    <li>
-                                        <i className="fa fa-globe"></i>
-                                        <a href="#">envato.com</a>
-                                    </li>
-
-                                    <li>
-                                        <i className="fa fa-phone"></i>
-                                        <span>(+1) 123 456 7890</span>
-                                    </li>
-                                </ul>
-
                             </div>
                         </div>
-
-
                     </div>
-
                 </div>
-            </section>
-
-
-
-
-
-
-
-            <section className="company-jobs ptb80">
-                <div className="container">
-
-                    <div className="row">
-                        <div className="col-md-12 text-center">
-                            <h3 className="pb60">Our Latest Jobs</h3>
-                        </div>
-                    </div>
-
-
-                    <div className="single-job-post row shadow-hover">
-
-                        <div className="col-md-2 col-xs-3 nopadding">
-                            <div className="job-company">
-                                <a href="#">
-                                    <img src="images/companies/envato.svg" alt=""/>
-                                </a>
-                            </div>
-                        </div>
-
-
-                        <div className="col-md-8 col-xs-6 ptb20">
-                            <div className="job-title">
-                                <a href="job-page.html">php senior developer</a>
-                            </div>
-                        </div>
-
-
-                        <div className="col-md-2 col-xs-3 ptb30">
-                            <div className="job-category">
-                                <a href="javascript:void(0)" className="btn btn-green btn-small btn-effect">full time</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="single-job-post row mt30 shadow-hover">
-
-                        <div className="col-md-2 col-xs-3 nopadding">
-                            <div className="job-company">
-                                <a href="#">
-                                    <img src="images/companies/envato.svg" alt=""/>
-                                </a>
-                            </div>
-                        </div>
-
-
-                        <div className="col-md-8 col-xs-6 ptb20">
-                            <div className="job-title">
-                                <a href="job-page.html">Graphic Designer</a>
-                            </div>
-                        </div>
-
-
-                        <div className="col-md-2 col-xs-3 ptb30">
-                            <div className="job-category">
-                                <a href="javascript:void(0)" className="btn btn-purple btn-small btn-effect">part time</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="single-job-post row mt30 shadow-hover">
-
-                        <div className="col-md-2 col-xs-3 nopadding">
-                            <div className="job-company">
-                                <a href="#">
-                                    <img src=".images/companies/envato.svg" alt=""/>
-                                </a>
-                            </div>
-                        </div>
-
-
-                        <div className="col-md-8 col-xs-6 ptb20">
-                            <div className="job-title">
-                                <a href="job-page.html">Wordpress Developer</a>
-                            </div>
-                        </div>
-
-
-                        <div className="col-md-2 col-xs-3 ptb30">
-                            <div className="job-category">
-                                <a href="javascript:void(0)" className="btn btn-green btn-small btn-effect">full time</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div className="row mt30">
-                        <div className="col-md-12 text-center">
-                            <a href="#" className="btn btn-blue btn-effect">show all</a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </section>
+            </div>
         </>
     )
 }

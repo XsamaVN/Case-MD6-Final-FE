@@ -125,7 +125,7 @@
 
 .navbar-light.sticky-top {
     top: -100px;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 @media (min-width: 992px) {
@@ -219,8 +219,8 @@
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
-    background: transparent;
-    border: 1px solid #FFFFFF;
+    background: #05ea9e;
+    border: 1px solid #05ea9e;
     border-radius: 2px;
     font-size: 22px;
     transition: .5s;

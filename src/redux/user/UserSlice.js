@@ -3,7 +3,7 @@ import {loginUser, registerUser} from "../../services/UserService";
 
 const initialState = {
     users: [],
-    // currentUser: JSON.parse(localStorage.getItem('currentUser')),
+    currentUser: JSON.parse(localStorage.getItem('currentUser')),
     registrationStatus: 'idle', // Thêm trạng thái để theo dõi quá trình đăng ký
     registrationError: null
 };
@@ -15,10 +15,8 @@ const userSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(loginUser.fulfilled, (state, action) => {
             console.log(action.payload)
-            localStorage.setItem('currentUser', action.payload.username)
-            localStorage.setItem("access_token", action.payload.accessToken)
-            localStorage.setItem("roles",action.payload.roles[0].authority)
-            // state.currentUser = action.payload.data.username;
+            // localStorage.setItem('currentUser', action.payload.username)
+            localStorage.setItem("currentUser", JSON.parse(action.payload))
             state.users= action.payload
         });
         builder.addCase(registerUser.pending, (state) => {
