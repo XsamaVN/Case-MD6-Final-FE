@@ -1,0 +1,12 @@
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-details > span {
+    margin-right: 10px;
+}
+
+.item-details > span:last-child {
+    margin-right: 0;
+}
