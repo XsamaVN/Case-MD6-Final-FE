@@ -399,13 +399,12 @@
     background: #00B074;
 
 }
-
-.register-body {
-    padding-bottom: 20px;
+.form-register{
+    padding: 0;
     border: 1px solid #dee2e6;
-    box-shadow: 5px 5px 5px #888888;
-    border-radius: 0 0 5px 5px;
+    border-top: 0;
 }
+
 
 #company {
     padding: 0 20px;

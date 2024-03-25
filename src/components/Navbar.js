@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router";
 import * as yup from "yup";
 import {loginUser} from "../services/UserService";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 
 export default function Navbar() {
     const dispatch = useDispatch();
@@ -19,8 +20,7 @@ export default function Navbar() {
 
 
     const initialValues = {
-        email: "",
-        password: ""
+        email: "", password: ""
     };
 
     const handleLogin = async (values) => {
@@ -64,7 +64,7 @@ export default function Navbar() {
         <>
             <div className={`container-fluid nav-bar bg-transparent ${isSticky ? 'sticky-top' : ''}`}>
                 <nav className="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
-                    <a href="/" className="navbar-brand d-flex align-items-center text-center">
+                    <a href="index.html" className="navbar-brand d-flex align-items-center text-center">
                         <div className="icon p-2 me-2">
                             {/*<img className="img-fluid" src={} alt="Icon"*/}
                             {/*     style={{ width: "30px", height: "30px" }} />*/}
@@ -112,15 +112,44 @@ export default function Navbar() {
                                 <li className="header__navbar-user-item">
                                     <a href="">Đơn mua</a>
                                 </li>
-                                <li className="header__navbar-user-item header__navbar-user-item--separate">
-                                    <a href="">Đăng xuất</a>
-                                </li>
+                                <button onClick={() => document.getElementById('id01').style.display = 'block'} style={{width:"auto"}}>Login</button>
                             </ul>
                         </li>
                     </div>
                 </nav>
             </div>
+            <div id="id01" className="modal">
+                <Formik
+                    initialValues={initialValues}
+                    validationSchema={loginSchema}
+                    onSubmit={handleLogin}
+                >
+                    {({ isSubmitting }) => (
+                        <Form className="modal-content animate">
+                            <div className="container">
+                                <label htmlFor="uname"><b>Username</b></label>
+                                <Field type="text" name="uname" placeholder="Enter Username" />
+                                <ErrorMessage name="uname" component="div" className="error-message" />
 
+                                <label htmlFor="psw"><b>Password</b></label>
+                                <Field type="password" name="psw" placeholder="Enter Password" />
+                                <ErrorMessage name="psw" component="div" className="error-message" />
+
+                                <button type="submit" disabled={isSubmitting}>Login</button>
+                                <label>
+                                    <Field type="checkbox" name="remember" />
+                                    Remember me
+                                </label>
+                            </div>
+                            <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
+                                <button type="button" onClick={() => document.getElementById('id01').style.display = 'none'} className="cancelbtn">Cancel</button>
+                                <span className="psw">Forgot <a href="#">password?</a></span>
+                            </div>
+                        </Form>
+                    )}
+                </Formik>
+            </div>
         </>
-    );
+    )
+        ;
 }
