@@ -103,7 +103,7 @@
 
 @media (max-width: 991.98px) {
     .navbar-dark .navbar-nav .nav-link,
-    .navbar-light .navbar-nav .nav-link  {
+    .navbar-light .navbar-nav .nav-link {
         margin-right: 0;
         padding: 10px 0;
     }
@@ -125,7 +125,7 @@
 
 .navbar-light.sticky-top {
     top: -100px;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 @media (min-width: 992px) {
@@ -182,7 +182,7 @@
         position: relative;
         min-height: 500px;
     }
-    
+
     .header-carousel .owl-carousel-item img {
         position: absolute;
         width: 100%;
@@ -219,8 +219,8 @@
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
-    background: transparent;
-    border: 1px solid #FFFFFF;
+    background: #05ea9e;
+    border: 1px solid #05ea9e;
     border-radius: 2px;
     font-size: 22px;
     transition: .5s;
@@ -332,7 +332,7 @@
     align-items: center;
     justify-content: center;
     color: var(--light);
-    border: 1px solid rgba(255,255,255,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 2px;
     transition: .3s;
 }
@@ -367,7 +367,7 @@
 }
 
 .footer .form-control {
-    border-color: rgba(255,255,255,0.5);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .footer .copyright {
@@ -403,9 +403,33 @@
 .register-body {
     padding-bottom: 20px;
     border: 1px solid #dee2e6;
-    box-shadow: 5px  5px 5px #888888;
+    box-shadow: 5px 5px 5px #888888;
+    border-radius: 0 0 5px 5px;
 }
 
 #company {
     padding: 0 20px;
 }
+
+/*.account-manage {*/
+/*    display: flex;*/
+/*    position: relative;*/
+/*}*/
+
+/*.account-manage:hover .account-manage-list   {*/
+/*    display: block;*/
+/*}*/
+
+/*.account-manage-list {*/
+/*    display: none;*/
+/*    position: absolute;*/
+/*    width: 165px;*/
+/*    top: 58px;*/
+/*    right: -40px;*/
+/*}*/
+
+/*.avatar {*/
+/*    border-radius: 60%;*/
+/*    width: 40px;*/
+/*    height: 40px;*/
+/*}*/

@@ -27,6 +27,14 @@
 .App-link {
   color: #61dafb;
 }
+.logo {
+  fill: url(#gradient);
+  width: 200px;
+  height: 200px;
+}
+.svg-logo {
+  fill: url(#gradient);
+}
 
 @keyframes App-logo-spin {
   from {
