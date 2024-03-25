@@ -77,7 +77,7 @@ export default function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <div className="navbar-nav ms-auto">
-                            <a href="/list" className="nav-item nav-link active">Trang chủ</a>
+                            <a href="/list" className="nav-item nav-link active">Home</a>
                             <a href="about.html" className="nav-item nav-link">About</a>
                             <div className="nav-item dropdown">
                                 <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
