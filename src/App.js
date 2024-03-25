@@ -6,6 +6,7 @@ import Home from "./pages/home/Home";
 import Body from "./components/Body";
 import Enterprise from "./pages/home/enterprises/Enterprise";
 import List from "./pages/home/enterprises/recruitment-post/List";
+import Create from "./pages/home/enterprises/recruitment-post/Create";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                         <Route path={'enterprise'} element={<Enterprise/>}></Route>
                         <Route path={'/list'} element={<List/>}></Route>
                     </Route>
+                    <Route path={'/create'} element={<Create/>}></Route>
                 </Routes>
             </div>
         </>
