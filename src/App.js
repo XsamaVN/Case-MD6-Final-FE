@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router";
 import Home from "./pages/home/Home";
 import Body from "./components/Body";
 import Enterprise from "./pages/home/enterprises/Enterprise";
+import List from "./pages/home/enterprises/recruitment-post/List";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                         <Route path={''} element={<Body/>}></Route>
                         <Route path={'register'} element={<Register/>}></Route>
                         <Route path={'enterprise'} element={<Enterprise/>}></Route>
+                        <Route path={'/list'} element={<List/>}></Route>
                     </Route>
                 </Routes>
             </div>

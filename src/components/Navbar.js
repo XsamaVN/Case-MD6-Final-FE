@@ -72,7 +72,7 @@ export default function Navbar() {
 
             <div className={`container-fluid nav-bar bg-transparent ${isSticky ? 'sticky-top' : ''}`} >
                 <nav className="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
-                    <a href="index.html" className="navbar-brand d-flex align-items-center text-center">
+                    <a href="/" className="navbar-brand d-flex align-items-center text-center">
                         <div className="icon p-2 me-2">
                             {/*<img className="img-fluid" src={} alt="Icon"*/}
                             {/*     style={{ width: "30px", height: "30px" }} />*/}
@@ -85,7 +85,7 @@ export default function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <div className="navbar-nav ms-auto">
-                            <a href="index.html" className="nav-item nav-link active">Home</a>
+                            <a href="/list" className="nav-item nav-link active">Trang chủ</a>
                             <a href="about.html" className="nav-item nav-link">About</a>
                             <div className="nav-item dropdown">
                                 <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
@@ -112,6 +112,7 @@ export default function Navbar() {
                     </div>
                 </nav>
             </div>
+
         </>
     );
 }
