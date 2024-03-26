@@ -14,6 +14,8 @@ const Register = () => {
         email: yup.string()
             .required('Email is required')
             .matches(/^.*@gmail\.com$/, 'Email must end with @gmail.com'),
+        agreePersonal: yup.boolean()
+            .oneOf([true], 'Accept with the Terms and Conditions to create account'),
     });
 
     const registerCompanySchema = yup.object().shape({
@@ -38,8 +40,6 @@ const Register = () => {
             .required('Branch is required'),
         phone: yup.string()
             .required('Phone is required'),
-        agreePersonal: yup.boolean()
-            .oneOf([true], 'Accept with the Terms and Conditions to create account'),
         agreeCompany: yup.boolean()
             .oneOf([true], 'Accept with the Terms and Conditions to create account'),
     });
@@ -105,7 +105,7 @@ const Register = () => {
                             <div className="form-register">
                                 <Formik initialValues={{
                                     email: '',
-                                    agree: false,
+                                    agreePersonal: false,
                                 }}
                                         validationSchema={registerUserSchema}
                                         onSubmit={(values, {setSubmitting}) => {
@@ -163,7 +163,7 @@ const Register = () => {
 
                                 <Formik initialValues={{
                                     email: '',
-                                    agree: false,
+                                    agreeCompany: false,
                                 }}
                                         validationSchema={registerCompanySchema}
                                         onSubmit={(values, {setSubmitting}) => {
@@ -288,15 +288,15 @@ const Register = () => {
                                                             <div className="row mt-4">
                                                                 <div className="col-md-12 text-right">
                                                                     <div className="form-check">
-                                                                        <Field type="checkbox" name="agree"
+                                                                        <Field type="checkbox" name="agreeCompany"
                                                                                id="companyAgree"
                                                                                className="form-check-input"/>
-                                                                        <label htmlFor="companyAgree"
+                                                                        <label htmlFor="agreeCompany"
                                                                                className="form-check-label">Agree with
                                                                             the <Link to="#" className="link-primary">Terms
                                                                                 and Conditions</Link></label>
                                                                         <ErrorMessage
-                                                                            name="agreePersonal"
+                                                                            name="agreeCompany"
                                                                             component="div"
                                                                             className="text-danger"
                                                                         />
