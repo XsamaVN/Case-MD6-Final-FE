@@ -14,14 +14,8 @@ const userSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(loginUser.fulfilled, (state, action) => {
-            console.log(action.payload)
-            // localStorage.setItem('currentUser', action.payload.username)
-            localStorage.setItem("currentUser", JSON.parse(action.payload))
-            state.users= action.payload
-        });
-        builder.addCase(registerUser.pending, (state) => {
-            state.registrationStatus = 'loading';
-            state.registrationError = null;
+            state.currentUser = action.payload
+            localStorage.setItem('currentUser', JSON.stringify(action.payload))
         });
         builder.addCase(registerUser.fulfilled, (state, action) => {
             state.registrationStatus = 'succeeded';

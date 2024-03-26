@@ -1,9 +1,5 @@
-import {Link} from "react-router-dom";
-import $ from 'jquery';
+
 import React, { useEffect } from 'react';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
-import 'owl.carousel/dist/owl.carousel';
 import img from '../img/carousel-1.jpg'
 
 
