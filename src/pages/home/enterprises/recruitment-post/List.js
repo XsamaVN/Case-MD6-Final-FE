@@ -34,12 +34,12 @@ export default function List() {
                     <h1 className="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
                         Danh sách công việc</h1>
                     <div className="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
-                        <div className="tab-content">
+                        <div className="tab-content" >
                             <div id="tab-1" className="tab-pane fade show p-0 active">
 
 
                                 {currentJobs.map((item, index) => (
-                                    <div className="job-item p-4 mb-4">
+                                    <div className="job-item p-4 mb-4" key={item.id}>
                                         <div className="row g-4">
                                             <div className="col-sm-12 col-md-8">
                                                 <div className="d-flex align-items-center">
@@ -56,9 +56,9 @@ export default function List() {
                                                         <span className="text-truncate me-0"><i
                                                             className="far fa-money-bill-alt text-primary me-2"></i>{item.salary}</span>
                                                         <span
-                                                            className="text-truncate me-0 mr-5">Kinh nghiệm: {item.exp}</span>
+                                                            className="text-truncate me-0 mr-5">Experience: {item.exp}</span>
                                                         <span
-                                                            className="text-truncate me-5 mr-5">Chức vụ: {item.position}</span>
+                                                            className="text-truncate me-5 mr-5">Position: {item.position}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -66,11 +66,10 @@ export default function List() {
                                                 <div
                                                     className="d-flex flex-column align-items-start align-items-md-end justify-content-between h-100">
                                                     <div className="mb-3">
-                                                        <a className="btn btn-primary" href="">Áp dụng ngay bây giờ</a>
+                                                        <a className="btn btn-primary" href="">Apply now</a>
                                                     </div>
                                                     <small className="text-truncate"><i
-                                                        className="far fa-calendar-alt text-primary me-2"></i>Ngày hết
-                                                        hạn: {item.expiryDate}</small>
+                                                        className="far fa-calendar-alt text-primary me-2"></i>Expiration date: {item.expiryDate}</small>
                                                 </div>
                                             </div>
                                         </div>

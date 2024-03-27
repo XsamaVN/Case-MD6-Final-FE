@@ -130,7 +130,8 @@ export default function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <div className="navbar-nav ms-auto">
-                            <Link to={"/"} className="nav-item nav-link active">Home</Link>
+                            {/*<Link to={"/"} className="nav-item nav-link active">Home</Link>*/}
+                            <Link to={"/list"} className="nav-item nav-link active">Home</Link>
                             <a href="about.html" className="nav-item nav-link">About</a>
                             <div className="nav-item dropdown">
                                 <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
