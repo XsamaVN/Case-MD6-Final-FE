@@ -34,12 +34,12 @@ export default function List() {
                     <h1 className="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
                         Danh sách công việc</h1>
                     <div className="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
-                        <div className="tab-content">
+                        <div className="tab-content" >
                             <div id="tab-1" className="tab-pane fade show p-0 active">
 
 
                                 {currentJobs.map((item, index) => (
-                                    <div className="job-item p-4 mb-4">
+                                    <div className="job-item p-4 mb-4" key={item.id}>
                                         <div className="row g-4">
                                             <div className="col-sm-12 col-md-8">
                                                 <div className="d-flex align-items-center">
