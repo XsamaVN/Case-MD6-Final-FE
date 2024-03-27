@@ -150,7 +150,7 @@ const Register = () => {
                                                                     className="btn btn-primary"
                                                                     disabled={isSubmitting}
                                                                     style={{width: "100%"}}>
-                                                                    {isSubmitting ? 'Creating Account...' : 'Create Account'}
+                                                                    {isSubmitting ? 'Creating Account...' : 'CreatePost Account'}
                                                                 </button>
                                                             </div>
                                                         </div>

@@ -4,7 +4,7 @@ import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {useNavigate} from 'react-router-dom';
 import * as Yup from "yup";
 
-function AddRecruitmentPost() {
+function CreatePost() {
     const [enterprises, setEnterprises] = useState([]);
 
     useEffect(() => {
@@ -26,7 +26,7 @@ function AddRecruitmentPost() {
         description: Yup.string().required('Vui lòng nhập thông tin'),
         recruitmentQuota: Yup.string().required('Vui lòng nhập thông tin'),
         sex: Yup.string().required('Vui lòng nhập thông tin'),
-        status: Yup.string().required('Vui lòng nhập thông tin'),
+        // status: Yup.string().required('Vui lòng nhập thông tin'),
     })
 
     const initialValues = {
@@ -39,7 +39,7 @@ function AddRecruitmentPost() {
         description: '',
         recruitmentQuota: '',
         sex: '',
-        status: '',
+        status: true,
         enterprise: {
             id: '',
             address:'',
@@ -58,58 +58,8 @@ function AddRecruitmentPost() {
 
     return (
         <>
-            <div className="container-xxl bg-white p-0">
-                <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-                    <a href="index.html"
-                       className="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-                        <h1 className="m-0 text-primary">JobEntry</h1>
-                    </a>
-                    <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse"
-                            data-bs-target="#navbarCollapse">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarCollapse">
-                        <div className="navbar-nav ms-auto p-4 p-lg-0">
-                            <a href="index.html" className="nav-item nav-link">Home</a>
-                            <a href="about.html" className="nav-item nav-link">About</a>
-                            <div className="nav-item dropdown">
-                                <a href="#" className="nav-link dropdown-toggle active"
-                                   data-bs-toggle="dropdown">Jobs</a>
-                                <div className="dropdown-menu rounded-0 m-0">
-                                    <a href="job-list.html" className="dropdown-item active">Job List</a>
-                                    <a href="job-detail.html" className="dropdown-item">Job Detail</a>
-                                </div>
-                            </div>
-                            <div className="nav-item dropdown">
-                                <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                                <div className="dropdown-menu rounded-0 m-0">
-                                    <a href="category.html" className="dropdown-item">Job Category</a>
-                                    <a href="testimonial.html" className="dropdown-item">Testimonial</a>
-                                    <a href="404.html" className="dropdown-item">404</a>
-                                </div>
-                            </div>
-                            <a href="contact.html" className="nav-item nav-link">Contact</a>
-                        </div>
-                        <a href="" className="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i
-                            className="fa fa-arrow-right ms-3"></i></a>
-                    </div>
-                </nav>
 
-                <div className="container-xxl py-5 bg-dark page-header mb-1">
-                    <div className="container my-5 pt-5 pb-4">
-                        <h1 className="display-3 text-white mb-3 animated slideInDown">Job List</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol className="breadcrumb text-uppercase">
-                                <li className="breadcrumb-item"><a href="#">Home</a></li>
-                                <li className="breadcrumb-item"><a href="#">Pages</a></li>
-                                <li className="breadcrumb-item text-white active" aria-current="page">Job List</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-
-           <div className="container">
+            <div className="container">
             <div className="container-xxl py-5">
                 <div className="container">
                     <h4 className="mb-4">Apply For The Job</h4>
@@ -227,4 +177,4 @@ function AddRecruitmentPost() {
     );
 }
 
-export default AddRecruitmentPost;
+export default CreatePost;
