@@ -9,7 +9,7 @@ export default function List() {
     const [jobsPerPage] = useState(4);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/recruitmentPosts').then(res => {
+        axios.get('http://localhost:8080/api/recruitment-posts').then(res => {
             console.log("data", res.data)
             setRecruitmentPost(res.data)
         })
